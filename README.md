@@ -1,24 +1,59 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type    | Option                    |
+| ------------------ | ------- | ------------------------- |
+| nickname           | string  | null: false               | 
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| birthday           | date    | null: false               |
+| sex_id             | integer | null: false               |
+| genre_id           | integer |                           |
+| part_id            | integer |                           |
+| introduction       | text    |                           |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :bookings
+- has_many :room_users
+- has_many :rooms, through: :room_users
+- has_many :messages
 
-* Configuration
+# bookings テーブル
 
-* Database creation
+| Column         | Type       | Option                         |
+| -------------- | ---------- | ------------------------------ |
+| title          | string     | null: false                    | 
+| area_id        | string     | null: false                    |
+| genre_id       | string     | null: false                    |
+| date           | date       |                                |
+| detail         | text       |                                |
+| user           | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
+- has_many :rooms
+- belongs to :user
 
-* How to run the test suite
+# room_users テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column         | Type       | Option                         |
+| -------------- | ---------- | ------------------------------ |
+| room           | references | null: false, foreign_key: true | 
+| user           | references | null: false, foreign_key: true |
 
-* Deployment instructions
+### Association
+- belongs to :room
+- belongs to :user
 
-* ...
+# messages テーブル
+
+| Column         | Type       | Option                         |
+| -------------- | ---------- | ------------------------------ |
+| content        | string     | null: false                    | 
+| room           | references | null: false, foreign_key: true |
+| user           | references | null: false, foreign_key: true |
+
+### Association
+- belongs to :room
+- belongs to :user
