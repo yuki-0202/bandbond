@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2022_02_12_091128) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
-    t.date "birthday", null: false
-    t.integer "sex_id", null: false
+    t.date "birthday"
+    t.integer "sex_id"
     t.integer "genre_id"
     t.integer "part_id"
     t.text "introduction"
