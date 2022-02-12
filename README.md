@@ -28,6 +28,7 @@
 | area_id        | string     | null: false                    |
 | genre_id       | string     | null: false                    |
 | date           | date       |                                |
+| venue          | string     |                                |
 | detail         | text       |                                |
 | user           | references | null: false, foreign_key: true |
 
