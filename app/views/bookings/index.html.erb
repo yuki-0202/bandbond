@@ -1,2 +1,42 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<%= render "shared/header" %>
+
+<main class="background">
+  <div class="container">
+    <div class="row">
+
+      <div class="my-4 col-md-6">
+        <%= render "shared/map"%>
+      </div>
+
+      <div class="my-4 col-md-6 list-size" >
+        <div class="alert alert-dark" role="alert">
+          ブッキング新着情報
+        </div>
+        <div class="list-group list-scroll">
+          <a href="#" class="list-group-item list-group-item-action">2021/6/25　石川　金沢AZホール　yamasita</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/4/25　大阪　梅田Zeela　佐藤</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/5/15　東京　ブルーノート東京　sasayama</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/6/25　東京　ZEPP DiverCity　ituki</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/7/16　東京　日本武道館　麻生太郎</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/5/10　大阪　心斎橋FANJ　mizukami</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/9/22　沖縄　Livehouse Output　トリンドル三宅</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/6/25　熊本　KUMAMOTO Django　徳川家康</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/6/25　石川　金沢AZホール　yamasita</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/4/25　大阪　梅田Zeela　佐藤</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/5/15　東京　ブルーノート東京　sasayama</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/6/25　東京　ZEPP DiverCity　ituki</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/7/16　東京　日本武道館　麻生太郎</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/5/10　大阪　心斎橋FANJ　mizukami</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/9/22　沖縄　Livehouse Output　トリンドル三宅</a>
+          <a href="#" class="list-group-item list-group-item-action">2021/6/25　熊本　KUMAMOTO Django　徳川家康</a>
+          <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+
+<%= render "shared/footer" %>

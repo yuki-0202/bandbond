@@ -1,0 +1,176 @@
+.background {
+  background-image: url(images/live_image.jpg);
+}
+
+/*--------- クリッカブルマップ ---------*/
+
+.map {
+  text-align: center;
+}
+
+.geolonia-svg-map {
+  width: 97%;
+}
+
+.geolonia-svg-map .boundary-line {
+  stroke: #999999;
+}
+
+/*--------- 都道府県ごとのカラー設定 ---------*/
+
+.kyusyu-okinawa {
+  fill: #F5B7B1;
+  stroke: #666666;
+  cursor: pointer;
+}
+
+.kyusyu-okinawa path  {
+  fill:#F5B7B1;
+  -webkit-transition: fill 0.3s ease-out;
+  -moz-transition: fill 0.3s ease-out;
+  -o-transition: fill 0.3s ease-out;
+  -ms-transition: fill 0.3s ease-out;
+  transition: fill 0.3s ease-out;
+}
+.kyusyu-okinawa g:hover path{
+  fill:#ff4500;
+}
+
+.shikoku {
+  fill: #F6DDCC;
+  stroke: #666666;
+  cursor: pointer;
+}
+
+.shikoku path  {
+  fill:#F6DDCC;
+  -webkit-transition: fill 0.3s ease-out;
+  -moz-transition: fill 0.3s ease-out;
+  -o-transition: fill 0.3s ease-out;
+  -ms-transition: fill 0.3s ease-out;
+  transition: fill 0.3s ease-out;
+}
+.shikoku g:hover path{
+  fill:#ff4500;
+}
+
+.chugoku {
+  fill: #FCF3CF;
+  stroke: #666666;
+  cursor: pointer;
+}
+
+.chugoku path  {
+  fill:#FCF3CF;
+  -webkit-transition: fill 0.3s ease-out;
+  -moz-transition: fill 0.3s ease-out;
+  -o-transition: fill 0.3s ease-out;
+  -ms-transition: fill 0.3s ease-out;
+  transition: fill 0.3s ease-out;
+}
+.chugoku g:hover path{
+  fill:#ff4500;
+}
+
+.kinki {
+  fill: #D5F5E3;
+  stroke: #666666;
+  cursor: pointer;
+}
+
+.kinki path  {
+  fill:#D5F5E3;
+  -webkit-transition: fill 0.3s ease-out;
+  -moz-transition: fill 0.3s ease-out;
+  -o-transition: fill 0.3s ease-out;
+  -ms-transition: fill 0.3s ease-out;
+  transition: fill 0.3s ease-out;
+}
+.kinki g:hover path{
+  fill:#ff4500;
+}
+
+.chubu {
+  fill: #ABEBC6;
+  stroke: #666666;
+  cursor: pointer;
+}
+
+.chubu path  {
+  fill:#ABEBC6;
+  -webkit-transition: fill 0.3s ease-out;
+  -moz-transition: fill 0.3s ease-out;
+  -o-transition: fill 0.3s ease-out;
+  -ms-transition: fill 0.3s ease-out;
+  transition: fill 0.3s ease-out;
+}
+.chubu g:hover path{
+  fill:#ff4500;
+}
+
+.kanto {
+  fill: #D6EAF8;
+  stroke: #666666;
+  cursor: pointer;
+}
+
+.kanto path  {
+  fill:#D6EAF8;
+  -webkit-transition: fill 0.3s ease-out;
+  -moz-transition: fill 0.3s ease-out;
+  -o-transition: fill 0.3s ease-out;
+  -ms-transition: fill 0.3s ease-out;
+  transition: fill 0.3s ease-out;
+}
+.kanto g:hover path{
+  fill:#ff4500;
+}
+
+.tohoku {
+  fill: #AED6F1;
+  stroke: #666666;
+  cursor: pointer;
+}
+
+.tohoku path  {
+  fill:#AED6F1;
+  -webkit-transition: fill 0.3s ease-out;
+  -moz-transition: fill 0.3s ease-out;
+  -o-transition: fill 0.3s ease-out;
+  -ms-transition: fill 0.3s ease-out;
+  transition: fill 0.3s ease-out;
+}
+.tohoku g:hover path{
+  fill:#ff4500;
+}
+
+.hokkaido {
+  fill: #85C1E9;
+  stroke: #666666;
+  cursor: pointer;
+}
+
+.hokkaido path  {
+  fill:#85C1E9;
+  -webkit-transition: fill 0.3s ease-out;
+  -moz-transition: fill 0.3s ease-out;
+  -o-transition: fill 0.3s ease-out;
+  -ms-transition: fill 0.3s ease-out;
+  transition: fill 0.3s ease-out;
+}
+.hokkaido g:hover path{
+  fill:#ff4500;
+}
+
+/*--------- ブッキングリスト ---------*/
+
+
+.list-scroll {
+  height: 90%;
+  overflow: scroll;
+}
+
+.list-size {
+  height: 75vh;
+}
+
