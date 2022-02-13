@@ -1,5 +1,10 @@
 .background {
-  background-image: url(images/live_image.jpg);
+  background-image: url(images/live_image.jpg)
+}
+
+.image-size {
+  background-size: cover;
+  background-position: bottom;
 }
 
 /*--------- クリッカブルマップ ---------*/
