@@ -4,6 +4,7 @@
 	padding-right:35px;
 	padding-top:35px;
 	padding-bottom:50px;
+  border-radius: 7px;
 }
 
 .field {
@@ -13,4 +14,23 @@
 
 .row-size {
 	height: 86vh;
+}
+
+#error_explanation {
+	color: #ff6347;
+	margin-top: 10%;
+}
+
+.login-flash-message {
+	color: #ff6347;
+	margin-top: 10%;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.info_text {
+	color: aliceblue;
+	opacity: 0.5;
 }
