@@ -7,8 +7,8 @@
 | nickname           | string  | null: false               | 
 | email              | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
-| birthday           | date    | null: false               |
-| sex_id             | integer | null: false               |
+| birthday           | date    |                           |
+| sex_id             | integer |                           |
 | genre_id           | integer |                           |
 | part_id            | integer |                           |
 | introduction       | text    |                           |
@@ -24,17 +24,26 @@
 
 | Column         | Type       | Option                         |
 | -------------- | ---------- | ------------------------------ |
-| title          | string     | null: false                    | 
 | area_id        | string     | null: false                    |
 | genre_id       | string     | null: false                    |
-| date           | date       |                                |
-| venue          | string     |                                |
-| detail         | text       |                                |
+| date_start     | date       |                                |
+| date_end       | date       |                                |
+| venue          | string     | null: false                    |
+| detail         | text       | null: false                    |
 | user           | references | null: false, foreign_key: true |
 
 ### Association
 - has_many :rooms
 - belongs to :user
+
+# rooms テーブル
+
+| Column         | Type       | Option                         |
+| -------------- | ---------- | ------------------------------ |
+| booking        | references | null: false, foreign_key: true | 
+
+### Association
+- belongs to :booking
 
 # room_users テーブル
 
