@@ -4,12 +4,12 @@
   <div class="container">
     <div class="row">
 
-<!--------------left_side-------------->
+<!--------------map_side-------------->
       <div class="my-4 col-lg-6">
         <%= render "shared/map"%>
       </div>
 
-<!--------------right_side-------------->
+<!--------------form_side-------------->
       <div class="my-4 col-lg-6" >
         <div class="form-box">
           <%= form_with model: @booking, url: '#', local: true do |f| %>
@@ -21,7 +21,7 @@
           </div>
 
             <div class="my-3">
-              <%= f.text_field :nickname, class:"form-control", id:"", placeholder:"地域" %>
+              <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class: "form-select", id:"test-prefecture"}) %>
             </div>
               <div class="my-3">
               <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class: "form-select"}) %>
