@@ -24,7 +24,7 @@
               <%= f.text_field :nickname, class:"form-control", id:"", placeholder:"地域" %>
             </div>
               <div class="my-3">
-              <%= f.text_field :nickname, class:"form-select", id:"", placeholder:"ジャンル" %>
+              <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class: "form-select"}) %>
             </div>
 
           <div class="form-row d-md-flex">
