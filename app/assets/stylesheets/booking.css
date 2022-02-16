@@ -2,3 +2,9 @@
 	color: white;
 	opacity: 0.5;
 }
+
+.title-text {
+	position: absolute;
+	color: white;
+	opacity: 0.7;
+}
