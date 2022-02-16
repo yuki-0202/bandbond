@@ -1,12 +1,11 @@
 /*--------- 共通 ---------*/
 
-.background {
-  background-image: url(images/live_image.jpg)
-}
-
-.image-size {
+body {
+  background-color: grey;
+  background-image: url(images/live_image.jpg);
   background-size: cover;
   background-position: bottom;
+  background-repeat: no-repeat;
 }
 
 .form-box {
@@ -25,7 +24,7 @@
 
 .info-text {
 	color: aliceblue;
-	opacity: 0.5;
+	opacity: 0.7;
 }
 
 .title-text {
@@ -224,4 +223,20 @@
 
 .list-size {
   height: 75vh;
+}
+
+/*--------- エラーハンドリング ---------*/
+
+.error-alert {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vh;
+  position: absolute;
+  top: 15%;
+}
+
+.error-message {
+  font-size: 1.3vw;
+  list-style: circle;
+  color: rgb(182, 48, 0);
 }

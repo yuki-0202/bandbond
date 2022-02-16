@@ -25,6 +25,6 @@ class Booking < ApplicationRecord
   def date_valid
     errors.add(:date_start, '未来の日付を入力してください') if date_start < Date.today
     errors.add(:date_end, '未来の日付を入力してください') if date_end < Date.today
-    errors.add(:date_end, '開催予定日を正しく入力してください') if date_start > date_end
+    errors.add(:date_end, '開催期間（開始）より過去の日付は入力できません') if date_start > date_end
   end
 end

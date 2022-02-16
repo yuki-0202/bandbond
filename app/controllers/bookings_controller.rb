@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new(venue: "未定", detail: "未定")
+    @booking = Booking.new(venue: "未定")
   end
 
   def create
