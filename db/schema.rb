@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 2022_02_14_081113) do
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "area_id", null: false
     t.string "genre_id", null: false
-    t.date "date_start"
-    t.date "date_end"
+    t.date "date_start", null: false
+    t.date "date_end", null: false
     t.string "venue", null: false
     t.text "detail", null: false
     t.bigint "user_id", null: false

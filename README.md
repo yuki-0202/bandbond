@@ -26,8 +26,8 @@
 | -------------- | ---------- | ------------------------------ |
 | area_id        | string     | null: false                    |
 | genre_id       | string     | null: false                    |
-| date_start     | date       |                                |
-| date_end       | date       |                                |
+| date_start     | date       | null: false                    |
+| date_end       | date       | null: false                    |
 | venue          | string     | null: false                    |
 | detail         | text       | null: false                    |
 | user           | references | null: false, foreign_key: true |
