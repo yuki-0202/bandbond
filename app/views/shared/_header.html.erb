@@ -6,62 +6,99 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      
+      <!-------------------ログインしている場合------------------->
+        <% if user_signed_in?%>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              ブッキング
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><%= link_to '投稿', new_booking_path, class: "dropdown-item" %></li>
+              <li><a class="dropdown-item" href="#">編集</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">削除</a></li>
+            </ul>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-        </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              チャット
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              プロフィール
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">詳細</a></li>
+              <li><a class="dropdown-item" href="#">編集</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+
+        <!-------------------ログインしていない場合------------------->
+        <% else %>
         
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <!-- Button trigger modal -->
+          <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
             ブッキング
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to '投稿', new_booking_path, class: "dropdown-item" %></li>
-            <li><a class="dropdown-item" href="#">編集</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">削除</a></li>
-          </ul>
-        </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
             チャット
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
             プロフィール
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">詳細</a></li>
-            <li><a class="dropdown-item" href="#">編集</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
 
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">information</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  この機能を使用するにはログインが必要です。
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" data-bs-dismiss="modal">
+                    <%= link_to 'ログインする', new_user_session_path, class: "login nav-link active" %>
+                  </button>
+                  <button class="btn btn-primary">
+                    <%= link_to '新規登録する', new_user_registration_path, class: "sign-up nav-link active" %>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <!-------------------ここまで------------------->
+      </ul>
+        
+      <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
           <% if user_signed_in? %>
-            <a><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout nav-link active" %></a>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout nav-link active" %>
           <% else %>
-            <a><%= link_to 'ログイン', new_user_session_path, class: "login nav-link active" %></a>
+            <%= link_to 'ログイン', new_user_session_path, class: "login nav-link active" %>
           <% end %>
         </li>
 
         <li class="nav-item">
           <% if user_signed_in? %>
-            <a><%= link_to current_user.nickname, "#", class: "user-nickname nav-link active" %></a>
+            <%= link_to current_user.nickname, "#", class: "user-nickname nav-link active" %>
           <% else %>
-            <a><%= link_to '新規登録', new_user_registration_path, class: "sign-up nav-link active" %></a>
+            <%= link_to '新規登録', new_user_registration_path, class: "sign-up nav-link active" %>
           <% end %>
         </li>
       </ul>
