@@ -12,7 +12,7 @@
 <!--------------form_side-------------->
       <div class="my-4 col-lg-6" >
         <div class="form-box">
-          <%= form_with model: @booking, url: '#', local: true do |f| %>
+          <%= form_with model: @booking, local: true do |f| %>
 
           <div class='mb-3"'>
               <h3 class='info_text'>
@@ -29,21 +29,21 @@
 
           <div class="form-row d-md-flex">
             <div class="mb-3 col-5">
-              <%= f.date_field :date_start, class: 'form-control' %>
+              <%= f.date_field :date_start, class: 'form-control',value: (Time.now.strftime("%Y-%m-%d")) %>
             </div>
             <div class="mb-3 col-1">
               <h2 class="control-label text mx-lg-1">〜</h2>
             </div>
               <div class="mb-3 col-5">
-              <%= f.date_field :date_end, class: 'form-control' %>
+              <%= f.date_field :date_end, class: 'form-control',value: (Time.now.strftime("%Y-%m-%d")) %>
             </div>
           </div>
 
             <div class="mb-3">
-              <%= f.text_field :nickname, class:"form-control", id:"", placeholder:"ライブ会場", maxlength:"40" %>
+              <%= f.text_field :venue, class:"form-control", id:"", placeholder:"ライブ会場", maxlength:"40" %>
             </div>
             <div class="mb-3">
-              <%= f.text_area :nickname, class:"form-control", rows: 8, placeholder:"詳細記入" %>
+              <%= f.text_area :detail, class:"form-control", rows: 8, placeholder:"詳細記入" %>
             </div>
 
             <div class='actions'>
