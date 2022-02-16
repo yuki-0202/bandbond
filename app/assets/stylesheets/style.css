@@ -1,3 +1,5 @@
+/*--------- 共通 ---------*/
+
 .background {
   background-image: url(images/live_image.jpg)
 }
@@ -5,6 +7,31 @@
 .image-size {
   background-size: cover;
   background-position: bottom;
+}
+
+.form-box {
+	background-color:rgba(72,72,72,0.4);
+	padding-left:35px;
+	padding-right:35px;
+	padding-top:35px;
+	padding-bottom:50px;
+  border-radius: 7px;
+	position: relative;
+}
+
+.row-size {
+	height: 86vh;
+}
+
+.info-text {
+	color: aliceblue;
+	opacity: 0.5;
+}
+
+.title-text {
+	color: aliceblue;
+	opacity: 0.5;
+  position: absolute;
 }
 
 /*--------- クリッカブルマップ ---------*/
@@ -21,7 +48,7 @@
   stroke: #999999;
 }
 
-/*--------- 都道府県ごとのカラー設定 ---------*/
+/* 都道府県ごとの設定 */
 
 .kyusyu-okinawa {
   fill: #F5B7B1;
@@ -167,41 +194,7 @@
   fill:#ff4500;
 }
 
-/*--------- ブッキング ---------*/
-
-
-.list-scroll {
-  height: 90%;
-  overflow: scroll;
-}
-
-.list-size {
-  height: 75vh;
-}
-
-.control-label.text {
-	color: white;
-	opacity: 0.5;
-}
-
-.form-box {
-	background-color:rgba(72,72,72,0.4);
-	padding-left:35px;
-	padding-right:35px;
-	padding-top:35px;
-	padding-bottom:50px;
-  border-radius: 7px;
-	position: relative;
-}
-
-.field {
-	color: aliceblue;
-	margin-bottom: 40px;
-}
-
-.row-size {
-	height: 86vh;
-}
+/*--------- devise ---------*/
 
 #error_explanation {
 	color: #ff6347;
@@ -217,13 +210,18 @@
   display: contents;
 }
 
-.info-text {
+.field {
 	color: aliceblue;
-	opacity: 0.5;
+	margin-bottom: 40px;
 }
 
-.title-text {
-	color: aliceblue;
-	opacity: 0.5;
-  position: absolute;
+/*--------- ブッキング一覧（仮） ---------*/
+
+.list-scroll {
+  height: 90%;
+  overflow: scroll;
+}
+
+.list-size {
+  height: 75vh;
 }
