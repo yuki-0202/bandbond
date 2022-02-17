@@ -1,10 +1,36 @@
-.background {
-  background-image: url(images/live_image.jpg)
-}
+/*--------- 共通 ---------*/
 
-.image-size {
+body {
+  background-color: grey;
+  background-image: url(images/live_image.jpg);
   background-size: cover;
   background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+.form-box {
+	background-color:rgba(72,72,72,0.4);
+	padding-left:35px;
+	padding-right:35px;
+	padding-top:35px;
+	padding-bottom:50px;
+  border-radius: 7px;
+	position: relative;
+}
+
+.row-size {
+	height: 86vh;
+}
+
+.info-text {
+	color: aliceblue;
+	opacity: 0.7;
+}
+
+.title-text {
+	color: aliceblue;
+	opacity: 0.5;
+  position: absolute;
 }
 
 /*--------- クリッカブルマップ ---------*/
@@ -21,7 +47,7 @@
   stroke: #999999;
 }
 
-/*--------- 都道府県ごとのカラー設定 ---------*/
+/* 都道府県ごとの設定 */
 
 .kyusyu-okinawa {
   fill: #F5B7B1;
@@ -167,8 +193,28 @@
   fill:#ff4500;
 }
 
-/*--------- ブッキングリスト ---------*/
+/*--------- devise ---------*/
 
+#error_explanation {
+	color: #ff6347;
+	margin-top: 10%;
+}
+
+.login-flash-message {
+	color: #ff6347;
+	margin-top: 10%;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+.field {
+	color: aliceblue;
+	margin-bottom: 40px;
+}
+
+/*--------- ブッキング一覧（仮） ---------*/
 
 .list-scroll {
   height: 90%;
@@ -179,3 +225,18 @@
   height: 75vh;
 }
 
+/*--------- エラーハンドリング ---------*/
+
+.error-alert {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vh;
+  position: absolute;
+  top: 15%;
+}
+
+.error-message {
+  font-size: 1.3vw;
+  list-style: circle;
+  color: rgb(182, 48, 0);
+}
