@@ -23,11 +23,9 @@ class Booking < ApplicationRecord
   private
 
   def date_valid
-    unless date_start == nil || date_end == nil
-      errors.add(:date_start, "can't be in the past date") if date_start < Date.today
-      errors.add(:date_end, "can't be in the past date") if date_end < Date.today
-      errors.add(:date_end, "can't be dated earlier than the start") if date_start > date_end
-    end
+    return if date_start.nil? || date_end.nil?
+    errors.add(:date_start, "can't be in the past date") if date_start < Date.today
+    errors.add(:date_end, "can't be in the past date") if date_end < Date.today
+    errors.add(:date_end, "can't be dated earlier than the start") if date_start > date_end
   end
-
 end

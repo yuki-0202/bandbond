@@ -10,10 +10,9 @@ class Genre < ActiveHash::Base
     { id: 8, name: 'ブルース' },
     { id: 9, name: 'ジャズ' },
     { id: 10, name: 'ビジュアル系' },
-    { id: 11, name: 'その他' },
+    { id: 11, name: 'その他' }
   ]
 
   include ActiveHash::Associations
   has_many :bookings
-
 end
