@@ -34,6 +34,14 @@ body {
   width: 70%;
 }
 
+.text-filter {
+	color: aliceblue;
+	opacity: 0.5;
+  position: absolute;
+  width: 70%;
+  filter: blur(4px);
+}
+
 .title-text-sub {
 	color: aliceblue;
 	opacity: 0.5;
@@ -239,15 +247,51 @@ body {
   opacity: 0.8;
 }
 
+.list-show-size {
+  height: 72vh;
+  opacity: 0.9;
+}
+
 .booking-list-top {
-font-weight: bold;
-display: flex;
-justify-content: space-between;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
 }
 
 .booking-list-bottom {
   display: flex;
   justify-content: space-between;
+}
+
+.booking-show-top {
+  margin: 3% 3% 0;
+  font-weight: bold;
+  font-size: x-large;
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking-show-middle {
+  margin: 3% 4% 5% 3%;
+  font-weight: bold;
+  font-size: large;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-box {
+  background-color: #D5D8DC;
+  height: 60%;
+  border-radius: 7px;
+  padding: 3%;
+  font-size: large;
+}
+  
+.booking-show-bottom {
+  margin: 3%;
+  font-weight: bold;
+  font-size: x-large;
+  text-align: right;
 }
 
 /*--------- エラーハンドリング ---------*/
@@ -265,3 +309,4 @@ justify-content: space-between;
   list-style: circle;
   color: rgb(182, 48, 0);
 }
+
