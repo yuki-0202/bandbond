@@ -19,33 +19,12 @@
           <li class="list-group-item list-group-item-dark">新着情報</li>
         </div>
         <div class="list-group list-scroll">
-          <% @bookings.each do |booking| %>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="booking-list-top">
-                <%= booking.area.name %>
-                <%= booking.venue %>
-                <div><span class="badge bg-info rounded-pill">
-                  <%= booking.genre.name %>
-                </span></div>
-              </div>
-              <div class="booking-list-bottom">
-                <div class="booking-list-bottom-left">
-                開催期間：<%= booking.date_start %>〜<%= booking.date_end %>
-                </div>
-                <div class="booking-list-bottom-right">
-                <%= booking.user.nickname %>
-                </div>
-              </div>
-            </a>
-          <% end %>
-          <%# end %>
-
+          <%= render partial: 'booking', collection: @bookings %>
         </div>
       </div>
+
     </div>
   </div>
 </main>
-
-
 
 <%= render "shared/footer" %>

@@ -1,0 +1,32 @@
+<!-------------------上段------------------->
+<a href="#" class="list-group-item list-group-item-action">
+  <div class="booking-list-top">
+
+    <%# 都道府県 %>
+    <%= booking.area.name %>
+
+    <%# 会場 %>
+    <%= booking.venue %>
+
+    <%# ジャンル %>
+    <div><span class="badge bg-info rounded-pill">
+      <%= booking.genre.name %>
+    </span></div>
+
+  </div>
+
+<!-------------------下段------------------->
+  <div class="booking-list-bottom">
+
+    <%# 開催期間 %>
+    <div class="booking-list-bottom-left">
+    開催期間：<%= booking.date_start %>〜<%= booking.date_end %>
+    </div>
+
+    <%# 投稿者名 %>
+    <div class="booking-list-bottom-right">
+    <%= booking.user.nickname %>
+    </div>
+
+  </div>
+</a>
