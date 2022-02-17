@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   def index
+    @bookings = Booking.all.order('updated_at DESC')
   end
 
   def new

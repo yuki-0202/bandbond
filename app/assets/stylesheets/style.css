@@ -31,6 +31,19 @@ body {
 	color: aliceblue;
 	opacity: 0.5;
   position: absolute;
+  width: 70%;
+}
+
+.title-text-sub {
+	color: aliceblue;
+	opacity: 0.5;
+  position: absolute;
+  top: 10vh;
+  width: 70%;
+}
+
+.title-box {
+  position: relative;
 }
 
 /*--------- クリッカブルマップ ---------*/
@@ -217,12 +230,24 @@ body {
 /*--------- ブッキング一覧（仮） ---------*/
 
 .list-scroll {
-  height: 90%;
+  height: 100%;
   overflow: scroll;
 }
 
 .list-size {
-  height: 75vh;
+  height: 72vh;
+  opacity: 0.8;
+}
+
+.booking-list-top {
+font-weight: bold;
+display: flex;
+justify-content: space-between;
+}
+
+.booking-list-bottom {
+  display: flex;
+  justify-content: space-between;
 }
 
 /*--------- エラーハンドリング ---------*/

@@ -4,36 +4,45 @@
   <div class="container">
     <div class="row">
 
-      <div class="my-4 col-md-6">
+      <%# クリッカブルマップ %>
+      <div class="title-box my-4 col-md-6">
+        <h1 class="title-text">What's New in Booking.</h1>
+        <h3 class="title-text-sub">
+          If you want to know the live information by region, please click the map.
+        </h3>
         <%= render "shared/map"%>
       </div>
 
+      <%# ブッキング一覧 %>
       <div class="my-4 col-md-6 list-size" >
-        <div class="alert alert-dark" role="alert">
-          ブッキング新着情報
+        <div class="list-group mb-2">
+          <li class="list-group-item list-group-item-dark">新着情報</li>
         </div>
         <div class="list-group list-scroll">
-          <a href="#" class="list-group-item list-group-item-action">2021/6/25　石川　金沢AZホール　yamasita</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/4/25　大阪　梅田Zeela　佐藤</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/5/15　東京　ブルーノート東京　sasayama</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/6/25　東京　ZEPP DiverCity　ituki</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/7/16　東京　日本武道館　麻生太郎</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/5/10　大阪　心斎橋FANJ　mizukami</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/9/22　沖縄　Livehouse Output　トリンドル三宅</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/6/25　熊本　KUMAMOTO Django　徳川家康</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/6/25　石川　金沢AZホール　yamasita</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/4/25　大阪　梅田Zeela　佐藤</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/5/15　東京　ブルーノート東京　sasayama</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/6/25　東京　ZEPP DiverCity　ituki</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/7/16　東京　日本武道館　麻生太郎</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/5/10　大阪　心斎橋FANJ　mizukami</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/9/22　沖縄　Livehouse Output　トリンドル三宅</a>
-          <a href="#" class="list-group-item list-group-item-action">2021/6/25　熊本　KUMAMOTO Django　徳川家康</a>
-          <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">A disabled link item</a>
+          <% @bookings.each do |booking| %>
+            <a href="#" class="list-group-item list-group-item-action">
+              <div class="booking-list-top">
+                <%= booking.area.name %>
+                <%= booking.venue %>
+                <div><span class="badge bg-info rounded-pill">
+                  <%= booking.genre.name %>
+                </span></div>
+              </div>
+              <div class="booking-list-bottom">
+                <div class="booking-list-bottom-left">
+                開催期間：<%= booking.date_start %>〜<%= booking.date_end %>
+                </div>
+                <div class="booking-list-bottom-right">
+                <%= booking.user.nickname %>
+                </div>
+              </div>
+            </a>
+          <% end %>
+          <%# end %>
+
         </div>
       </div>
     </div>
-
   </div>
 </main>
 
