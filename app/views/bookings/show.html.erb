@@ -55,11 +55,17 @@
 
             <%# ボタン %>
             <div class="booking-show-bottom">
-              <% if user_signed_in? && current_user.id == @booking.user_id %>
-                <%= link_to '編集', edit_booking_path(@booking.id), class: "btn btn-outline-secondary"%>
-                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">削除</button>
-              <% end %>
-              <button type="button" class="btn btn-outline-primary mx-3">チャットルーム</button>
+              <div>
+                <button type="button" class="btn btn-outline-primary">チャットルーム</button>
+                <%= link_to 'もどる', root_path, class: "btn btn-outline-secondary mx-2"%>
+              </div>
+              <div>
+                  <% if user_signed_in? && current_user.id == @booking.user_id %>
+                  <%= link_to '編集', edit_booking_path(@booking.id), class: "btn btn-outline-secondary"%>
+                  <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">削除</button>
+                <% end %>
+              </div>
+
             </div>
           </div>
         </div>

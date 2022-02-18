@@ -291,7 +291,8 @@ body {
   margin: 3%;
   font-weight: bold;
   font-size: x-large;
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
 }
 
 /*--------- エラーハンドリング ---------*/
