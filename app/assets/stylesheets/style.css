@@ -244,12 +244,12 @@ body {
 
 .list-size {
   height: 72vh;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .list-show-size {
   height: 72vh;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .booking-list-top {
@@ -299,7 +299,7 @@ body {
 
 .error-alert {
   position: absolute;
-  top: 15%;
+  top: 8vh;
 }
 
 .error-message {
