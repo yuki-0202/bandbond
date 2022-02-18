@@ -55,13 +55,11 @@
 
             <%# ボタン %>
             <div class="booking-show-bottom">
-            <% if user_signed_in? && current_user.id == @booking.user_id %>
-              <%# <button type="button" class="btn btn-outline-secondary"> %>
+              <% if user_signed_in? && current_user.id == @booking.user_id %>
                 <%= link_to '編集', edit_booking_path(@booking.id), class: "btn btn-outline-secondary"%>
-              <%# </button> %>
-              <button type="button" class="btn btn-outline-secondary">削除</button>
-            <% end %>
-              <button type="button" class="btn btn-outline-primary">チャットルーム</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">削除</button>
+              <% end %>
+              <button type="button" class="btn btn-outline-primary mx-3">チャットルーム</button>
             </div>
           </div>
         </div>
@@ -69,5 +67,24 @@
     </div>
   </div>
 </main>
+
+<!-- Modal（削除確認） -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Caution</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        本当に削除してもよろしいですか？
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">もどる</button>
+        <%= link_to '削除する', booking_path(@booking.id), method: :delete, class: "btn btn-primary"%>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= render "shared/footer" %>
