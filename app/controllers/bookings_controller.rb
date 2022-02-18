@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_booking, only: [:show, :edit, :update]
+  before_action :move_to_index, only: [:edit]
+
   def index
     @bookings = Booking.all.order('updated_at DESC')
   end
@@ -17,7 +21,17 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @booking.update(booking_params)
+      redirect_to booking_path(@booking.id)
+    else
+      render :edit
+    end
   end
 
   def booking_params
@@ -29,5 +43,13 @@ class BookingsController < ApplicationController
       :venue,
       :detail
     ).merge(user_id: current_user.id)
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to root_path if current_user.id != @booking.user_id
   end
 end

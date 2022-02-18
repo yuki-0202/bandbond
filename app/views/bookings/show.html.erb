@@ -56,7 +56,9 @@
             <%# ボタン %>
             <div class="booking-show-bottom">
             <% if user_signed_in? && current_user.id == @booking.user_id %>
-              <button type="button" class="btn btn-outline-secondary">編集</button>
+              <%# <button type="button" class="btn btn-outline-secondary"> %>
+                <%= link_to '編集', edit_booking_path(@booking.id), class: "btn btn-outline-secondary"%>
+              <%# </button> %>
               <button type="button" class="btn btn-outline-secondary">削除</button>
             <% end %>
               <button type="button" class="btn btn-outline-primary">チャットルーム</button>
