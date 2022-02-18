@@ -1,0 +1,71 @@
+<%= render "shared/header" %>
+
+<main>
+  <div class="container">
+    <div class="row">
+
+      <%# クリッカブルマップ %>
+      <div class="title-box my-4 col-md-6">
+        <h1 class="title-text">What's New in Booking.</h1>
+        <h1 class="title-text text-filter">What's New in Booking.</h1>
+        <h3 class="title-text-sub">
+          If you want to know the live information by region, please click the map.
+        </h3>
+        <h3 class="title-text-sub text-filter">
+          If you want to know the live information by region, please click the map.
+        </h3>
+        <%= render "shared/map" %>
+      </div>
+
+      <%# ブッキング詳細 %>
+      <div class="my-4 col-md-6 list-show-size">
+        <div class="list-group mb-2">
+          <li class="list-group-item list-group-item-dark">
+            詳細情報
+          </li>
+        </div>
+        <div class="list-group list-scroll">
+          <div class="list-group-item list-show-size">
+
+            <div class="booking-show-top">
+              <%# 会場 %>
+              <%= @booking.venue %>
+              <%# 都道府県 %>
+              (<%= @booking.area.name %>)
+              <%# ジャンル %>
+              <div><span class="badge bg-info rounded-pill">
+                <%= @booking.genre.name %>
+              </span></div>
+            </div>
+
+            <%# 開催期間 %>
+            <div class="booking-show-middle">
+              <div>
+                開催期間：<%= @booking.date_start %>〜<%= @booking.date_end %>
+              </div>
+              <%# 投稿者名 %>
+              <div>
+                <%= link_to @booking.user.nickname, '#' %>
+              </div>
+            </div>
+            <%# 詳細 %>
+            <div class="detail-box list-scroll">
+              <%=safe_join(@booking.detail.split("\n"),tag(:br))%>
+            </div>
+
+            <%# ボタン %>
+            <div class="booking-show-bottom">
+            <% if user_signed_in? && current_user.id == @booking.user_id %>
+              <button type="button" class="btn btn-outline-secondary">編集</button>
+              <button type="button" class="btn btn-outline-secondary">削除</button>
+            <% end %>
+              <button type="button" class="btn btn-outline-primary">チャットルーム</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= render "shared/footer" %>

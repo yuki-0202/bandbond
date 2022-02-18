@@ -1,5 +1,6 @@
 <!-------------------上段------------------->
-<a href="#" class="list-group-item list-group-item-action">
+
+<%= link_to booking_path(booking.id), class: 'list-group-item list-group-item-action' do %>
   <div class="booking-list-top">
 
     <%# 都道府県 %>
@@ -14,19 +15,20 @@
     </span></div>
 
   </div>
-
+  
 <!-------------------下段------------------->
+
   <div class="booking-list-bottom">
 
     <%# 開催期間 %>
-    <div class="booking-list-bottom-left">
+    <div>
     開催期間：<%= booking.date_start %>〜<%= booking.date_end %>
     </div>
 
     <%# 投稿者名 %>
-    <div class="booking-list-bottom-right">
+    <div>
     <%= booking.user.nickname %>
     </div>
 
   </div>
-</a>
+<% end %>
