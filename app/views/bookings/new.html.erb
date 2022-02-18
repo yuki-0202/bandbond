@@ -58,8 +58,13 @@
             </div>
 
             <%# 投稿ボタン %>
-            <div class='actions'>
-              <%= f.submit "投稿" ,class:"mt-2 btn btn-primary px-4" %>
+            <div class="d-flex">
+              <div class='actions'>
+                <%= f.submit "投稿" ,class:"mt-2 btn btn-primary px-4" %>
+              </div>
+              <div  class='actions '>
+                <%= link_to 'もどる', root_path, class: "btn mt-2 mx-3 btn-secondary px-4" %>
+              </div>
             </div>
           <% end %>
         </div>
