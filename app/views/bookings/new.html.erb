@@ -5,14 +5,16 @@
     <div class="row">
 <!--------------クリッカブルマップ-------------->
       <div class="my-4 col-lg-6">
+        <div class="form-box">
           <div class="title-box">
             <h1 class="title-text">Booking post</h1>
             <h1 class="title-text text-filter">Booking post</h1>
-            <h3 class="title-text-sub">You can select the area by clicking the map.</h3>
-            <h3 class="title-text-sub text-filter">You can select the area by clicking the map.</h3>
+            <%# <h3 class="title-text-sub">You can select the area by clicking the map.</h3> %>
+            <%# <h3 class="title-text-sub text-filter">You can select the area by clicking the map.</h3> %>
           </div>
           <%= render 'shared/error_messages', model: @booking %>
           <%= render "shared/map"%>
+        </div>
       </div>
 <!--------------ブッキング投稿フォーム-------------->
       <div class="my-4 col-lg-6" >

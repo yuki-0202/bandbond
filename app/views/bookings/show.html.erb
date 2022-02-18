@@ -45,7 +45,7 @@
               </div>
               <%# 投稿者名 %>
               <div>
-                <%= @booking.user.nickname %>
+                <%= link_to @booking.user.nickname, '#' %>
               </div>
             </div>
             <%# 詳細 %>
@@ -55,8 +55,10 @@
 
             <%# ボタン %>
             <div class="booking-show-bottom">
+            <% if user_signed_in? && current_user.id == @booking.user_id %>
               <button type="button" class="btn btn-outline-secondary">編集</button>
               <button type="button" class="btn btn-outline-secondary">削除</button>
+            <% end %>
               <button type="button" class="btn btn-outline-primary">チャットルーム</button>
             </div>
           </div>
