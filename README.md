@@ -137,7 +137,7 @@ HTML / CSS / JavaScript
 - バックエンド  
 Ruby / Ruby on Rails
 - インフラ  
-Heroku
+Heroku / MySQL
 - テスト  
 ー
 - テキストエディタ  
