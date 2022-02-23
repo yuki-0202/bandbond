@@ -54,7 +54,7 @@ https://bandbond.herokuapp.com/
 
 # データベース設計
 
-[![Image from Gyazo](https://i.gyazo.com/db7e10aafeecf5157b70407376365809.png)](https://gyazo.com/db7e10aafeecf5157b70407376365809)
+[[![Image from Gyazo](https://i.gyazo.com/d501b20e8de38c22195e3e484c327032.png)](https://gyazo.com/d501b20e8de38c22195e3e484c327032)](https://gyazo.com/db7e10aafeecf5157b70407376365809)
 
 # 画面遷移図
 
@@ -106,6 +106,8 @@ https://bandbond.herokuapp.com/
 
 ### Association
 - belongs to :booking
+- has_many :room_users
+- has_many :users, through: :room_users
 
 ## room_users テーブル
 
