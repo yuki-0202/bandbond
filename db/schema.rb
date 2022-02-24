@@ -36,15 +36,17 @@ ActiveRecord::Schema.define(version: 2022_02_23_021823) do
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "booking_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["booking_id"], name: "index_rooms_on_booking_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "nickname", null: false
     t.date "birthday"
     t.integer "sex_id"
     t.integer "genre_id"
@@ -63,4 +65,5 @@ ActiveRecord::Schema.define(version: 2022_02_23_021823) do
   add_foreign_key "room_users", "rooms"
   add_foreign_key "room_users", "users"
   add_foreign_key "rooms", "bookings"
+  add_foreign_key "rooms", "users"
 end

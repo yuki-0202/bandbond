@@ -3,6 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :genre
   belongs_to :area
+  has_many :rooms
 
   with_options presence: true do
     validates :area_id

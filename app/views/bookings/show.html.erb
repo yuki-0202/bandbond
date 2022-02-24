@@ -55,8 +55,12 @@
 
             <%# ボタン %>
             <div class="booking-show-bottom">
-              <div>
-                <button type="button" class="btn btn-outline-primary">チャットルーム</button>
+              <div class="d-inline-flex">
+                <%=form_with model: @room, url: booking_rooms_path(params[:id]), local: true do |f|%>
+                  <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+                  <input name="room[user_ids][]" type="hidden" value=<%= @booking.user.id %>>
+                  <%= f.submit name="チャットルーム", class: 'btn btn-outline-primary'%>
+                <% end %>
                 <%= link_to 'もどる', root_path, class: "btn btn-outline-secondary mx-2"%>
               </div>
               <div>
