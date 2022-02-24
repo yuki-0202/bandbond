@@ -1,5 +1,9 @@
 /*--------- 共通 ---------*/
 
+.test-color {
+  color: white;
+}
+
 body {
   background-color: grey;
   background-image: url(images/live_image.jpg);
