@@ -22,11 +22,6 @@ class BookingsController < ApplicationController
 
   def show
     @rooms = Room.where(booking_id: params[:id])
-    # @users = User.all
-    # @user = []
-    #   @rooms.each do |i|
-    #     @user << User.find_by(id: @rooms[i][:user_id])
-    #   end
   end
 
   def edit
