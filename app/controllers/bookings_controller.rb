@@ -40,6 +40,8 @@ class BookingsController < ApplicationController
     redirect_to root_path
   end
 
+  private
+
   def booking_params
     params.require(:booking).permit(
       :area_id,
