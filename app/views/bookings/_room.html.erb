@@ -4,7 +4,11 @@
   <div class="booking-list-top">
 
     <%# 名前 %>
-    <%= room.users[0].nickname %>さん
+    <% if room.users[0].id == current_user.id %>
+      <%= room.users[1].nickname %>さん
+    <% else %>
+      <%= room.users[0].nickname %>さん
+    <% end %>
 
     <%# 投稿日時 %>
     <div><span class="badge bg-info rounded-pill">
@@ -24,3 +28,6 @@
 
   </div>
 <% end %>
+
+
+
