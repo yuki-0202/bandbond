@@ -1,10 +1,10 @@
 <!-------------------上段------------------->
 
-<%= link_to "#", class: 'list-group-item list-group-item-action' do %>
+<%= link_to booking_room_path(params[:id],room[:id]), class: 'list-group-item list-group-item-action' do %>
   <div class="booking-list-top">
 
-    <%# 都道府県 %>
-    投稿者さんのチャット(仮)
+    <%# 名前 %>
+    <%= room.users[0].nickname %>さん
 
     <%# 投稿日時 %>
     <div><span class="badge bg-info rounded-pill">
