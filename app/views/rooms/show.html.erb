@@ -25,7 +25,7 @@
             <!--左コメント-->
             <div class="balloon6">
               <div class="faceicon">
-              
+
               <%# アイコン %>
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                   <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -76,7 +76,7 @@
               <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                 ブッキング詳細を表示
               </button>
-              <%= link_to 'もどる', root_path, class: "btn btn-secondary mx-2"%>
+              <%= link_to 'もどる', booking_path(params[:booking_id]), class: "btn btn-secondary mx-2"%>
             </div>
           </div>
       </div>
