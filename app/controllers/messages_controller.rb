@@ -7,7 +7,8 @@ class MessagesController < ApplicationController
       redirect_to room_path(params[:room_id])
     else
       @messages = @room.messages.includes(:user)
-      render :show
+      @booking = Booking.find(@room.booking.id)
+      render 'rooms/show'
     end
   end
 
