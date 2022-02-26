@@ -4,7 +4,7 @@
   <div class="booking-list-top">
 
     <%# 名前 %>
-    <% if room.users[0].id == current_user.id %>
+    <% if room.users[0].id == @booking.user.id %>
       <%= room.users[1].nickname %>さん
     <% else %>
       <%= room.users[0].nickname %>さん
