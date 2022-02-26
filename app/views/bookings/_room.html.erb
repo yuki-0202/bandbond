@@ -6,14 +6,20 @@
     <%# 名前 %>
     <% if room.users[0].id == @booking.user.id %>
       <%= room.users[1].nickname %>さん
+      <% user = room.users[1] %>
     <% else %>
       <%= room.users[0].nickname %>さん
+      <% user = room.users[0] %>
     <% end %>
 
     <%# 投稿日時 %>
-    <div><span class="badge bg-info rounded-pill">
-      35分前(仮)
-    </span></div>
+    <div>
+      <span class="badge bg-info rounded-pill">
+        <% if user.messages.present? %>
+          <%= l user.messages.last.created_at %>
+        <% end%>
+      </span>
+    </div>
 
   </div>
   
@@ -22,8 +28,14 @@
   <div class="booking-list-bottom">
 
     <%# 最新のチャット %>
-    <div>
-    会場に駐車場はありますか？(仮)
+    <div class="chatting">
+      <div class="says">
+        <p>
+        <% if user.messages.present? %>
+          <%= user.messages.last.content %>
+        <% end%>
+        </p>
+      </div>
     </div>
 
   </div>
