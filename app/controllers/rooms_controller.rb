@@ -16,6 +16,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @booking = Booking.find(@room.booking_id)
     @message = Message.new
+    @messages = @room.messages.includes(:user)
   end
 
   private

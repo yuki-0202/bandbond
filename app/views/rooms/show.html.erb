@@ -20,72 +20,40 @@
       <%# ---------- チャット画面 ---------- %>
       <div class="my-4 col-md-6 list-show-size">
         <div class="list-group list-scroll">
+
           <div class="chat-box">
-
-            <!--左コメント-->
-            <div class="balloon6">
-              <div class="faceicon">
-
-              <%# アイコン %>
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
-                <%# アイコン end %>
-              </div>
-
-                <%# 名前表示 %>
-                <div class="chat-name">
-                  <% if @room.users[0].id == current_user.id %>
-                    <%= @room.users[1].nickname %>
-                  <% else %>
-                    <%= @room.users[0].nickname %>
-                  <% end %>
-                </div>
-                <%# 名前表示 end %>
-
-              <div class="chatting">
-                <div class="says">
-                  <p>左ふきだし文</p>
-                </div>
-              </div>
-            </div>
-            <!--左コメント end-->
-
-            <!--右コメント-->
-            <div class="mycomment">
-              <p>
-              右ふきだし文
-              </p>
-            </div>
-            <!--右コメント end-->
-
-            <!--送信フォーム-->
-            <%= form_with model: [@room, @message], class: 'chat-form', local: true do |f| %>
-              <div class="mb-3">
-                <%= f.text_field :content, class: 'form-control', placeholder: 'type a message' %>
-              </div>
-              <%= f.submit '送信', class: 'btn btn-primary' %>
-            <% end %>
-            <!--送信フォーム end-->
-
+            <%= render partial: '/messages/message', collection: @messages %>
           </div> 
-        </div>
-          <div class="d-flex div-color mt-2 justify-content-end align-items-center">
-            <div class="my-2">
+
+          <div class="div-color mt-2 justify-content-between align-items-center">
+            <div class="m-2">
+              <!--送信フォーム-->
+              <%= form_with model: [@room, @message], local: true do |f| %>
+                <div class="form-row d-flex">
+                  <div class="form-group col-10">
+                    <%= f.text_field :content, class: 'form-control', placeholder: 'type a message' %>
+                  </div>
+                  <div class="form-group col-1 text-right ms-2">
+                    <%= f.submit '送信', class: 'btn btn-primary' %>
+                  </div>
+                </div>
+              <% end %>
+              <!--送信フォーム end-->
+            </div>
+
+            <div class="m-2">
               <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                 ブッキング詳細を表示
               </button>
               <%= link_to 'もどる', booking_path(@booking.id), class: "btn btn-secondary mx-2"%>
             </div>
           </div>
-      </div>
+        </div>
       <%# ---------- チャット画面end ---------- %>
 
     </div>
   </div>
 </main>
-<%# <%= render "shared/footer" %>
 
 
 <%# ---------- オフキャンバス（ブッキング詳細） ---------- %>

@@ -253,7 +253,7 @@ body {
 }
 
 .list-show-size {
-  height: 72vh;
+  height: 80vh;
   opacity: 0.95;
 }
 
@@ -321,15 +321,7 @@ body {
   text-align: right;
   font-size: 20px;
   background-color:rgba(72,72,72,0.8);
-  height: 100%;
   overflow: scroll;
-  position: relative;
-}
-
-.chat-form {
-position: absolute;
-width: 94%;
-bottom: 5%;
 }
 
 .chat-name {
