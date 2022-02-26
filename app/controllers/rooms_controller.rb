@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :set_room_set_booking, only: [:show, :destroy]
 
   def create
     @room = Room.new(room_params)
@@ -13,15 +14,23 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
-    @booking = Booking.find(@room.booking_id)
     @message = Message.new
     @messages = @room.messages.includes(:user)
+  end
+
+  def destroy
+    @room.destroy
+    redirect_to booking_path(@booking.id)
   end
 
   private
 
   def room_params
     params.require(:room).permit(user_ids: []).merge(booking_id: params[:booking_id], user_id: current_user.id)
+  end
+
+  def set_room_set_booking
+    @room = Room.find(params[:id])
+    @booking = Booking.find(@room.booking_id)
   end
 end

@@ -45,7 +45,11 @@
               <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                 ブッキング詳細を表示
               </button>
-              <%= link_to 'もどる', booking_path(@booking.id), class: "btn btn-secondary mx-2"%>
+              <% if @room.messages.present? %>
+                <%= link_to 'もどる', booking_path(@booking.id), class: "btn btn-secondary mx-2"%>
+              <% else %>
+                <%= link_to 'もどる', room_path(@room), method: :delete, class: "btn btn-secondary mx-2"%>
+              <% end %>
             </div>
           </div>
         </div>

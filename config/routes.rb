@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :bookings do
     resources :rooms, only: [:create]
   end
-  resources :rooms, only: [:show] do
+  resources :rooms, only: [:show, :destroy] do
     resources :messages, only: [:create]
   end
 end
