@@ -26,13 +26,16 @@
     <div class="says">
       <p><%= message.content %></p>
     </div>
+    <span class="chat-time"><%= l message.created_at %></span>
   </div>
 </div>
 <!--左コメント end-->
 <% else %>
 
 <!--右コメント-->
+
 <div class="mycomment">
+  <span class="chat-time"><%= l message.created_at %></span>
   <p><%= message.content %></p>
 </div>
 <!--右コメント end-->

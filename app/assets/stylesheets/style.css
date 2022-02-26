@@ -1,9 +1,5 @@
 /*--------- 共通 ---------*/
 
-.test-color {
-  color: white;
-}
-
 .div-color {
   background-color:rgba(72,72,72,0.8);
   border-radius: 7px;
@@ -329,6 +325,11 @@ body {
   margin-left: 55px;
   font-size: 16px;
   color: white;
+}
+
+.chat-time {
+  color: white;
+  font-size: 10px;
 }
 
 /*以下、②左側のコメント*/
