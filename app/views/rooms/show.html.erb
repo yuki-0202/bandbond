@@ -61,12 +61,12 @@
             <!--右コメント end-->
 
             <!--送信フォーム-->
-            <form class="chat-form ">
+            <%= form_with model: [@room, @message], class: 'chat-form', local: true do |f| %>
               <div class="mb-3">
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <%= f.text_field :content, class: 'form-control', placeholder: 'type a message' %>
               </div>
-              <button type="submit" class="btn btn-primary">送信</button>
-            </form>
+              <%= f.submit '送信', class: 'btn btn-primary' %>
+            <% end %>
             <!--送信フォーム end-->
 
           </div> 

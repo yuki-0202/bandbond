@@ -13,8 +13,9 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find_by(id: params[:id])
+    @room = Room.find(params[:id])
     @booking = Booking.find(@room.booking_id)
+    @message = Message.new
   end
 
   private
