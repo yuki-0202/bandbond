@@ -18,14 +18,9 @@
       </div>
 
       <%# ---------- ブッキング詳細 ---------- %>
-      <div class="my-4 col-md-6 list-show-size">
-        <div class="list-group mb-2">
-          <li class="list-group-item list-group-item-dark">
-            詳細情報
-          </li>
-        </div>
-        <div class="list-group list-scroll">
-          <div class="list-group-item list-show-size">
+      <div class="my-4 col-md-6">
+        <div class="list-group">
+          <div class="booking-show-box">
 
             <div class="booking-show-top">
               <%# 会場 %>
@@ -54,16 +49,18 @@
             </div>
 
             <%# 各種ボタン %>
-            <div class="booking-show-bottom">
-
+          </div>
+          <div class="div-color mt-2">
+            <div class="m-2 d-flex  justify-content-between">
+            
               <% if user_signed_in? && current_user.id == @booking.user_id %>
                 <div class="d-inline-flex">
-                  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#roomsModal">チャットルーム一覧</button>
-                  <%= link_to 'もどる', root_path, class: "btn btn-outline-secondary mx-2"%>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#roomsModal">チャットルーム一覧</button>
+                  <%= link_to 'もどる', root_path, class: "btn btn-secondary mx-2"%>
                 </div>
                 <div>
-                  <%= link_to '編集', edit_booking_path(@booking.id), class: "btn btn-outline-secondary"%>
-                  <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteModal">削除</button>
+                  <%= link_to '編集', edit_booking_path(@booking.id), class: "btn btn-secondary"%>
+                  <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#deleteModal">削除</button>
                 </div>
 
               <% elsif user_signed_in?  && current_user.id != @booking.user_id %>
@@ -71,20 +68,20 @@
                   <%=form_with model: @room, url: booking_rooms_path(params[:id]), local: true do |f|%>
                     <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
                     <input name="room[user_ids][]" type="hidden" value=<%= @booking.user.id %>>
-                    <%= f.submit name="チャットルーム", class: 'btn btn-outline-primary'%>
+                    <%= f.submit name="チャットルーム", class: 'btn btn-primary'%>
                   <% end %>
-                  <%= link_to 'もどる', root_path, class: "btn btn-outline-secondary mx-2"%>
+                  <%= link_to 'もどる', root_path, class: "btn btn-secondary mx-2"%>
                 </div>
 
               <% else %>
                 <div class="d-inline-flex">
-                  <a type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     チャットルーム
                   </a>
-                  <%= link_to 'もどる', root_path, class: "btn btn-outline-secondary mx-2"%>
+                  <%= link_to 'もどる', root_path, class: "btn btn-secondary mx-2"%>
                 </div>
               <% end %>
-
+              
             </div>
           </div>
         </div>
@@ -92,7 +89,7 @@
     </div>
   </div>
 </main>
-<%= render "shared/footer" %>
+
 
 <!-- Modal（削除確認） -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -1,26 +1,42 @@
-<!-------------------上段------------------->
 
-<%= link_to booking_room_path(params[:id],room[:id]), class: 'list-group-item list-group-item-action' do %>
-  <div class="booking-list-top">
+<% if room.messages.present? %>
 
-    <%# 名前 %>
-    <%= room.users[0].nickname %>さん
+  <!-------------------上段------------------->
 
-    <%# 投稿日時 %>
-    <div><span class="badge bg-info rounded-pill">
-      35分前(仮)
-    </span></div>
+  <%= link_to room_path(room[:id]), class: 'list-group-item list-group-item-action' do %>
+    <div class="booking-list-top">
 
-  </div>
-  
-<!-------------------下段------------------->
+      <% if room.users[0].id == @booking.user.id %>
+        <% user = room.users[1] %>
+      <% else %>
+        <% user = room.users[0] %>
+      <% end %>
 
-  <div class="booking-list-bottom">
+      <%# 名前 %>
+      <%= user.nickname %>さん
 
-    <%# 最新のチャット %>
-    <div>
-    会場に駐車場はありますか？(仮)
+      <%# 投稿日時 %>
+      <div>
+        <span class="badge bg-info rounded-pill">
+          <%= l user.messages.last.created_at %>
+        </span>
+      </div>
+
     </div>
+    
+  <!-------------------下段------------------->
 
-  </div>
+    <div class="booking-list-bottom">
+
+      <%# 最新のチャット %>
+      <div class="chatting">
+        <div class="says">
+          <p><%= room.messages.last.content %></p>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+
 <% end %>
+
