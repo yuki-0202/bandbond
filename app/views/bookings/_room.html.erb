@@ -24,19 +24,24 @@
 
     </div>
     
-  <!-------------------下段------------------->
+    <!-------------------下段------------------->
 
     <div class="booking-list-bottom">
 
       <%# 最新のチャット %>
-      <div class="chatting">
-        <div class="says">
-          <p><%= room.messages.last.content %></p>
-        </div>
-      </div>
+        <% if room.messages.last.user.id != current_user.id %>
+          <div class="chatting">
+            <div class="says">
+              <p><%= room.messages.last.content %></p>
+            </div>
+          </div>
+        <% else %>
+          <div class="mycomment ms-auto">
+            <p><%= room.messages.last.content %></p>
+          </div>
+        <% end%>
 
     </div>
   <% end %>
-
 <% end %>
 
