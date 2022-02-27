@@ -1,45 +1,42 @@
-<!-------------------上段------------------->
 
-<%= link_to room_path(room[:id]), class: 'list-group-item list-group-item-action' do %>
-  <div class="booking-list-top">
+<% if room.messages.present? %>
 
-    <%# 名前 %>
-    <% if room.users[0].id == @booking.user.id %>
-      <%= room.users[1].nickname %>さん
-      <% user = room.users[1] %>
-    <% else %>
-      <%= room.users[0].nickname %>さん
-      <% user = room.users[0] %>
-    <% end %>
+  <!-------------------上段------------------->
 
-    <%# 投稿日時 %>
-    <div>
-      <span class="badge bg-info rounded-pill">
-        <% if user.messages.present? %>
+  <%= link_to room_path(room[:id]), class: 'list-group-item list-group-item-action' do %>
+    <div class="booking-list-top">
+
+      <% if room.users[0].id == @booking.user.id %>
+        <% user = room.users[1] %>
+      <% else %>
+        <% user = room.users[0] %>
+      <% end %>
+
+      <%# 名前 %>
+      <%= user.nickname %>さん
+
+      <%# 投稿日時 %>
+      <div>
+        <span class="badge bg-info rounded-pill">
           <%= l user.messages.last.created_at %>
-        <% end%>
-      </span>
-    </div>
-
-  </div>
-  
-<!-------------------下段------------------->
-
-  <div class="booking-list-bottom">
-
-    <%# 最新のチャット %>
-    <div class="chatting">
-      <div class="says">
-        <p>
-        <% if user.messages.present? %>
-          <%= user.messages.last.content %>
-        <% end%>
-        </p>
+        </span>
       </div>
+
     </div>
+    
+  <!-------------------下段------------------->
 
-  </div>
+    <div class="booking-list-bottom">
+
+      <%# 最新のチャット %>
+      <div class="chatting">
+        <div class="says">
+          <p><%= room.messages.last.content %></p>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+
 <% end %>
-
-
 
