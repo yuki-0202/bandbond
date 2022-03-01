@@ -399,9 +399,10 @@ body {
 }
 .mycomment p {
   display: inline-block;
+  text-align: left;
   position: relative; 
   margin: 0 10px 0 0;
-  padding: 8px;
+  padding: 8px 4px 8px 8px;
   max-width: 250px;
   border-radius: 12px;
   background: #30e852;
