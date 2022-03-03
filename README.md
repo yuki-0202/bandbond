@@ -162,7 +162,7 @@ Ruby / Ruby on Rails
 - インフラ  
 Heroku / MySQL
 - テスト  
-ー
+RSpec
 - テキストエディタ  
 Visual Studio Code
 - タスク管理  
