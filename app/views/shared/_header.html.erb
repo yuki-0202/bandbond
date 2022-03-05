@@ -68,15 +68,16 @@
     <% else %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#loginModal">
             ブッキング
           </a>
-          <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#loginModal">
             チャット
           </a>
-          <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#loginModal">
             プロフィール
           </a>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               検索
@@ -88,7 +89,7 @@
           </li>
 
           <!-- Modal（ログイン案内） -->
-          <%= render "shared/rogin_guidance_modal" %>
+          <%= render "shared/login_modal" %>
 
         </ul>
       </div>
