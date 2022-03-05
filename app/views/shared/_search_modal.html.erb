@@ -9,31 +9,31 @@
 
       <div class="modal-body">
         <%= search_form_for @q, url: search_bookings_path, html: {id: "detailed-search-form"} do |f| %>
-
-          <div class="search-field">
-            <%= f.label :area_id_eq, '地域' %>
-            <br>
-            <%= f.collection_select(:area_id_eq, Area.all, :id, :name, {include_blank: "---"}) %>
+          <div class="form-row d-md-flex">
+            <div class="search-field my-2 col-5">
+              <%= f.label :area_id_eq, '地域' %>
+              <br>
+              <%= f.collection_select(:area_id_eq, Area.all, :id, :name, {include_blank: "---"}, {class: "form-select", id:"area-prefecture"}) %>
+            </div>
+            <div class="search-field my-2 mx-md-5 col-5">
+              <%= f.label :genre_id_eq, 'ジャンル' %>
+              <br>
+              <%= f.collection_select(:genre_id_eq, Genre.all, :id, :name, {include_blank: "---"}, {class: "form-select"}) %>
+            </div>
           </div>
-
-          <div class="search-field">
-            <%= f.label :genre_id_eq, 'ジャンル' %>
-            <br>
-            <%= f.collection_select(:genre_id_eq, Genre.all, :id, :name, {include_blank: "---"}) %>
-          </div>
-
-          <div class="search-field">
+          <div class="search-field mb-4">
             <%= f.label :venue_cont, '会場名' %>
             <br>
-            <%= f.text_field :venue_cont, placeholder: '会場名' %>
+            <%= f.text_field :venue_cont, class:"form-control", placeholder: '会場名' %>
           </div>
-
-          <%= f.submit '検索' %>
+          <div class="modal-footer">
+            <label class="btn btn-primary">
+            検索
+              <span class="hidden"><%= f.submit '検索' %></span>
+            </label>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">もどる</button>
+          </div>
         <% end %>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">もどる</button>
       </div>
     </div>
   </div>

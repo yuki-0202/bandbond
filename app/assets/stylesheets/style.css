@@ -57,6 +57,10 @@ body {
   position: relative;
 }
 
+.hidden {
+  display: none;
+}
+
 /*--------- クリッカブルマップ ---------*/
 
 .map {
