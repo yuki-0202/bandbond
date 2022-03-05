@@ -22,13 +22,13 @@
             </div>
           </div>
           <div class="search-field mb-4">
-            <%= f.label :venue_cont, '会場名' %>
+            <%= f.label :detail_or_venue_cont, '会場・詳細' %>
             <br>
-            <%= f.text_field :venue_cont, class:"form-control", placeholder: '会場名' %>
+            <%= f.text_field :venue_cont, class:"form-control", placeholder: 'キーワード検索' %>
           </div>
           <div class="modal-footer">
             <label class="btn btn-primary">
-            検索
+              検索
               <span class="hidden"><%= f.submit '検索' %></span>
             </label>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">もどる</button>
