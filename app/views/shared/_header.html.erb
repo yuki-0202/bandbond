@@ -66,29 +66,8 @@
           <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
             プロフィール
           </a>
-
           <!-- Modal（ログイン案内） -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">information</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  この機能を使用するにはログインが必要です。
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-primary" data-bs-dismiss="modal">
-                    <%= link_to 'ログインする', new_user_session_path, class: "login nav-link active" %>
-                  </button>
-                  <button class="btn btn-primary">
-                    <%= link_to '新規登録する', new_user_registration_path, class: "sign-up nav-link active" %>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <%= render "shared/rogin_guidance_modal" %>
         </ul>
       </div>
       <ul class="navbar-nav mb-2 mb-lg-0">
