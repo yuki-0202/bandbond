@@ -22,7 +22,7 @@
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               チャット
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -34,7 +34,7 @@
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               プロフィール
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -42,6 +42,17 @@
               <li><a class="dropdown-item disabled" href="#">編集</a></li>
             </ul>
           </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              検索
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#searchModal">ブッキング検索</button></li>
+              <li><a class="dropdown-item disabled" href="#">ユーザー検索</a></li>
+            </ul>
+          </li>
+
         </ul>
       </div>
       <ul class="navbar-nav mb-2 mb-lg-0">
@@ -66,8 +77,19 @@
           <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
             プロフィール
           </a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              検索
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#searchModal">ブッキング検索</button></li>
+              <li><a class="dropdown-item disabled" href="#">ユーザー検索</a></li>
+            </ul>
+          </li>
+
           <!-- Modal（ログイン案内） -->
           <%= render "shared/rogin_guidance_modal" %>
+
         </ul>
       </div>
       <ul class="navbar-nav mb-2 mb-lg-0">
@@ -86,6 +108,9 @@
         <input type="text" size="25" placeholder="キーワード検索">
         <input type="submit" value="&#xf002">
       </form>
+
+      <!-- Modal（ブッキング検索） -->
+      <%= render "shared/search_modal" %>
 
     </div>
   </div>

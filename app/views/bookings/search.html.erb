@@ -1,0 +1,36 @@
+<%= render "shared/header" %>
+
+<main>
+  <div class="container">
+    <div class="row">
+
+      <%# クリッカブルマップ %>
+      <div class="title-box my-4 col-md-6">
+      
+        <h1 class="title-text">What's New in Booking.</h1>
+        <h1 class="text-filter">What's New in Booking.</h1>
+
+        <h3 class="title-text-sub">
+          If you want to know the live information by region, please click the map.
+        </h3>
+        <h3 class="title-text-sub text-filter">
+          If you want to know the live information by region, please click the map.
+        </h3>
+        <%= render "shared/map"%>
+      </div>
+
+      <%# ブッキング一覧(検索結果) %>
+      <div class="my-4 col-md-6 list-size" >
+        <div class="list-group mb-2">
+          <li class="list-group-item list-group-item-dark">新着情報</li>
+        </div>
+        <div class="list-group list-scroll"  id="detailed-search-result">
+          <%= render partial: 'booking', collection: @search_bookings %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<%= render "shared/footer" %>

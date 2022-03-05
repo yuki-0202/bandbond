@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "bookings#index"
   resources :bookings do
     resources :rooms, only: [:create]
+    collection do
+      get 'search'
+    end
   end
   resources :rooms, only: [:show, :destroy] do
     resources :messages, only: [:create]

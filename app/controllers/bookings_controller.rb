@@ -40,6 +40,10 @@ class BookingsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    #applicaion_controller内で変数定義
+  end
+
   private
 
   def booking_params
