@@ -13,17 +13,19 @@
         </div>
 
         <div class="profile-detail">
-          <p>登録日：2022/3/8</p>
-          <p>年齢：22歳</p>
-          <p>性別：男性</p>
-          <p>地域：石川</p>
-          <p>パート：ボーカル</p>
-          <p>ジャンル：ビジュアル系</p>
+          <p>登録日：<%= current_user.created_at.strftime('%Y/%m/%d') %></p>
+          <% if current_user.birthday.present? %>
+            <p>年齢：<%= (Date.today.strftime("%Y%m%d").to_i - current_user.birthday.to_i) / 10000 %></p>
+          <% else %>
+            <p>年齢：</p>
+          <% end %>
+          <p>性別：<%= current_user.sex_id %></p>
+          <p>地域：○○</p>
+          <p>パート：<%= current_user.part_id %></p>
+          <p>ジャンル：<%= current_user.genre_id %></p>
           <p>自己紹介/メッセージ　▼</p>
-          <p>テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト</p>
+          <p><%= current_user.introduction %></p>
         </div>
-
-
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">編集する</button>
