@@ -431,10 +431,11 @@ body {
 .profile-image-box {
   display: flex;
   justify-content: center;
+  height: 300px;
+  width: 100%;
 }
 
 .profile-image {
-  width: 80%;
   margin-bottom:20px;
 }
 
