@@ -41,7 +41,7 @@ class BookingsController < ApplicationController
   end
 
   def search
-    #applicaion_controller内で変数定義
+    # applicaion_controller内で変数定義
   end
 
   private

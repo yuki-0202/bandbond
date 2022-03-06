@@ -3,12 +3,8 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
-    if Room.exists?(booking_id: @room.booking_id, user_id: current_user.id)
-      move_to_room
-    else
-      @room.save
-      move_to_room
-    end
+    @room.save unless Room.exists?(booking_id: @room.booking_id, user_id: current_user.id)
+    move_to_room
   end
 
   def show
