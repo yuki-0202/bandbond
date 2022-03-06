@@ -25,11 +25,11 @@
             <div class="form-row d-md-flex">
               <div class="my-2 col-5">
                 <label class="info-text mb-2">地域</label>
-                <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class: "form-select", id:"test-prefecture"}) %>
+                <%= f.collection_select(:area_id, Area.all, :id, :name, {include_blank: "---"}, {class: "form-select", id:"test-prefecture"}) %>
               </div>
               <div class="my-2 mx-md-5 col-5">
                 <label class="info-text mb-2">ジャンル</label>
-                <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class: "form-select"}) %>
+                <%= f.collection_select(:genre_id, Genre.all, :id, :name, {include_blank: "---"}, {class: "form-select"}) %>
               </div>
             </div>
 

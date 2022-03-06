@@ -75,7 +75,7 @@
 
               <% else %>
                 <div class="d-inline-flex">
-                  <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
                     チャットルーム
                   </a>
                   <%= link_to 'もどる', root_path, class: "btn btn-secondary mx-2"%>
@@ -91,12 +91,12 @@
 </main>
 
 
-<!-- Modal（削除確認） -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal（ブッキング削除確認） -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Caution</h5>
+        <h5 class="modal-title" id="deleteModalLabel">Caution</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -111,11 +111,11 @@
 </div>
 
 <!-- Modal（チャットルーム一覧） -->
-<div class="modal fade" id="roomsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="roomsModal" tabindex="-1" aria-labelledby="roomsModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">チャットルーム一覧</h5>
+        <h5 class="modal-title" id="roomsModalLabel">チャットルーム一覧</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
@@ -135,4 +135,4 @@
 </div>
 
 <!-- Modal（ログイン案内） -->
-<%= render "shared/rogin_guidance_modal" %>
+<%= render "shared/login_modal" %>
