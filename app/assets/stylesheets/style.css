@@ -1,4 +1,4 @@
-/*--------- 共通 ---------*/
+/*------------------ 共通 ------------------*/
 
 .div-color {
   background-color:rgba(72,72,72,0.8);
@@ -61,7 +61,7 @@ body {
   display: none;
 }
 
-/*--------- クリッカブルマップ ---------*/
+/*------------------ クリッカブルマップ ------------------*/
 
 .map {
   text-align: center;
@@ -221,7 +221,7 @@ body {
   fill:#ff4500;
 }
 
-/*--------- devise ---------*/
+/*------------------ devise ------------------*/
 
 #error_explanation {
 	color: #ff6347;
@@ -242,7 +242,7 @@ body {
 	margin-bottom: 40px;
 }
 
-/*--------- ブッキング ---------*/
+/*------------------ ブッキング ------------------*/
 
 .list-scroll {
   height: 100%;
@@ -306,7 +306,7 @@ body {
   justify-content: space-between;
 }
 
-/*--------- エラーハンドリング ---------*/
+/*------------------ エラーハンドリング ------------------*/
 
 .error-alert {
   position: absolute;
@@ -319,7 +319,7 @@ body {
   color: rgb(182, 48, 0);
 }
 
-/*--------- チャット ---------*/
+/*------------------ チャット ------------------*/
 
 .chat-box {
   border-radius: 7px;
@@ -426,40 +426,4 @@ body {
   transform: rotate(-35deg);
 }
 
-/*--------- 検索フォーム ---------*/
-
-.search_container{
-  background-color: white;
-  margin-left: 20px;
-  box-sizing: border-box;
-  position: relative;
-  border: 1px solid #999;
-  padding: 3px 10px;
-  border-radius: 20px;
-  height: 2.3em;
-  width: 260px;
-  overflow: hidden;
-}
-.search_container input[type="text"]{
-  border: none;
-  height: 2.0em;
-}
-.search_container input[type="text"]:focus {
-  outline: 0;
-}
-.search_container input[type="submit"]{
-  cursor: pointer;
-  font-family: FontAwesome;
-  font-size: 1.3em;
-  border: none;
-  background: none;
-  color: #3879D9;
-  position: absolute;
-  width: 2.5em;
-  height: 2.5em;
-  right: 0;
-  top: -10px;
-  outline : none;
-}
-
-/*--------- end ---------*/
+/*------------------ ここまで ------------------*/
