@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2022_02_26_064840) do
 
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "area_id", null: false
-    t.string "genre_id", null: false
+    t.integer "area_id", null: false
+    t.integer "genre_id", null: false
     t.date "date_start", null: false
     t.date "date_end", null: false
     t.string "venue", null: false
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2022_02_26_064840) do
     t.date "birthday"
     t.integer "sex_id"
     t.integer "genre_id"
+    t.integer "area_id"
     t.integer "part_id"
     t.text "introduction"
     t.string "reset_password_token"
