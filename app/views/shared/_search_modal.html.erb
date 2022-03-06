@@ -13,7 +13,7 @@
             <div class="search-field my-2 col-5">
               <%= f.label :area_id_eq, '地域' %>
               <br>
-              <%= f.collection_select(:area_id_eq, Area.all, :id, :name, {include_blank: "---"}, {class: "form-select", id:"area-prefecture"}) %>
+              <%= f.collection_select(:area_id_eq, Area.all, :id, :name, {include_blank: "---"}, {class: "form-select", id:"search-area-select"}) %>
             </div>
             <div class="search-field my-2 mx-md-5 col-5">
               <%= f.label :genre_id_eq, 'ジャンル' %>
@@ -27,7 +27,7 @@
             <%= f.text_field :detail_or_venue_cont, class:"form-control", placeholder: 'キーワード検索' %>
           </div>
           <div class="modal-footer">
-            <label class="btn btn-primary">
+            <label class="btn btn-primary" id="search-submit">
               検索
               <span class="hidden"><%= f.submit '検索' %></span>
             </label>
