@@ -444,3 +444,7 @@ body {
   overflow-y: scroll;
   text-align: left;
 }
+
+.profile-detail p {
+  font-size: medium;
+}
