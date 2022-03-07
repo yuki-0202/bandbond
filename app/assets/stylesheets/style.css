@@ -442,4 +442,5 @@ body {
 .profile-detail {
   height: 35vh;
   overflow-y: scroll;
+  text-align: left;
 }
