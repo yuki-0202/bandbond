@@ -1,0 +1,36 @@
+<!-- Modal（ブッキング投稿者 プロフィール詳細） -->
+<div class="modal fade" id="bookingProfileModal" tabindex="-1" aria-labelledby="bookingProfileModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="bookingProfileModalLabel"><%= @booking.user.nickname %></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          <div class="profile-image-box">
+            <%= image_tag 'profile_image.jpg', class: "profile-image"%>
+          </div>
+          <div class="profile-detail">
+            <p>登録日：<%= @booking.user.created_at.strftime('%Y/%m/%d') %></p>
+            <% if @booking.user.birthday.present? %>
+              <p>年齢：<%= (Date.today.strftime("%Y%m%d").to_i - @booking.user.birthday.to_i) / 10000 %></p>
+            <% else %>
+              <p>年齢：</p>
+            <% end %>
+            <p>性別：<%= @booking.user.sex_id %></p>
+            <p>地域：<%= @booking.user.area_id %></p>
+            <p>パート：<%= @booking.user.part_id %></p>
+            <p>ジャンル：<%= @booking.user.genre_id %></p>
+            <p>自己紹介/メッセージ　▼</p>
+            <p><%= @booking.user.introduction %></p>
+          </div>
+          <div class="modal-footer">
+            <% if user_signed_in? && @booking.user.id == current_user.id %>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">編集する</button>
+            <% end %>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,8 @@
 class CreateBookings < ActiveRecord::Migration[6.0]
   def change
     create_table :bookings do |t|
-      t.string     :area_id,    null: false
-      t.string     :genre_id,   null: false
+      t.integer    :area_id,    null: false
+      t.integer    :genre_id,   null: false
       t.date       :date_start, null: false
       t.date       :date_end,   null: false
       t.string     :venue,      null: false

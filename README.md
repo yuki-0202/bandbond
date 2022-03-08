@@ -68,12 +68,12 @@ https://bandbond.herokuapp.com/
 [![Image from Gyazo](https://i.gyazo.com/113f6061932c38634248783c37141fe0.gif)](https://gyazo.com/113f6061932c38634248783c37141fe0)
 # 実装予定の機能
 
-現在、ブッキング検索機能を実装中。  
-今後はプロフィール編集機能や非同期通信を実装予定。
+現在、プロフィール編集機能を実装中。  
+今後はエラーメッセージの日本語化や非同期通信を実装予定。
 
 # データベース設計
 
-[![Image from Gyazo](https://i.gyazo.com/13c4f1f447a3ee73ce6f690418de6f9b.png)](https://gyazo.com/13c4f1f447a3ee73ce6f690418de6f9b)
+[![Image from Gyazo](https://i.gyazo.com/254c4cdd6438ada2946221e4a3cd35bf.png)](https://gyazo.com/254c4cdd6438ada2946221e4a3cd35bf)
 
 # 画面遷移図
 
@@ -91,6 +91,7 @@ https://bandbond.herokuapp.com/
 | birthday           | date    |                           |
 | sex_id             | integer |                           |
 | genre_id           | integer |                           |
+| area_id            | integer |                           |
 | part_id            | integer |                           |
 | introduction       | text    |                           |
 

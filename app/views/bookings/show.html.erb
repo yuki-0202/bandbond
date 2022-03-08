@@ -39,7 +39,7 @@
                 開催期間：<%= @booking.date_start %>〜<%= @booking.date_end %>
               </div>
               <%# 投稿者名 %>
-              <div>
+              <div data-bs-toggle="modal" data-bs-target="#bookingProfileModal">
                 <%= link_to @booking.user.nickname, '#' %>
               </div>
             </div>
@@ -136,3 +136,5 @@
 
 <!-- Modal（ログイン案内） -->
 <%= render "shared/login_modal" %>
+<!-- Modal（ブッキング投稿者 プロフィール詳細） -->
+<%= render "shared/booking_profile_modal" %>
