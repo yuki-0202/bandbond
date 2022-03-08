@@ -15,12 +15,12 @@ https://bandbond.herokuapp.com/
 - Basic認証ID：admin
 
 #### アカウント1
-- メールアドレス：bbb@bbb
-- パスワード：111bbb
+- メールアドレス：kkk@kkk
+- パスワード：111kkk
 
 #### アカウント2
-- メールアドレス：ccc@ccc
-- パスワード：111ccc
+- メールアドレス：mmm@mmm
+- パスワード：111mmm
 
 # 利用方法
 
