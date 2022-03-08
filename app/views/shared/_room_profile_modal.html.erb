@@ -19,7 +19,7 @@
           <div class="profile-detail">
             <p>登録日：<%= room_user.created_at.strftime('%Y/%m/%d') %></p>
             <% if room_user.birthday.present? %>
-              <p>年齢：<%= (Date.today.strftime("%Y%m%d").to_i - room_user.birthday.to_i) / 10000 %></p>
+              <p>年齢：</p>
             <% else %>
               <p>年齢：</p>
             <% end %>
@@ -27,7 +27,7 @@
             <p>地域：<%= room_user.area_id %></p>
             <p>パート：<%= room_user.part_id %></p>
             <p>ジャンル：<%= room_user.genre_id %></p>
-            <p>自己紹介/メッセージ　▼</p>
+            <p>自己紹介／メッセージ　▼</p>
             <p><%= room_user.introduction %></p>
           </div>
           <div class="modal-footer">

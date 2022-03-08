@@ -13,7 +13,7 @@
           <div class="profile-detail">
             <p>登録日：<%= @booking.user.created_at.strftime('%Y/%m/%d') %></p>
             <% if @booking.user.birthday.present? %>
-              <p>年齢：<%= (Date.today.strftime("%Y%m%d").to_i - @booking.user.birthday.to_i) / 10000 %></p>
+              <p>年齢：</p>
             <% else %>
               <p>年齢：</p>
             <% end %>
@@ -21,7 +21,7 @@
             <p>地域：<%= @booking.user.area_id %></p>
             <p>パート：<%= @booking.user.part_id %></p>
             <p>ジャンル：<%= @booking.user.genre_id %></p>
-            <p>自己紹介/メッセージ　▼</p>
+            <p>自己紹介／メッセージ　▼</p>
             <p><%= @booking.user.introduction %></p>
           </div>
           <div class="modal-footer">
