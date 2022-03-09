@@ -16,12 +16,12 @@ chutatsu = User.create( email: 'mmm@mmm', nickname: '司馬仲達', password: '1
 # bookings
 hokkaido = Booking.create(
   area_id: '2',
-  genre_id: '6',
+  genre_id: '11',
   date_start: Date.today,
   date_end: Date.tomorrow,
   venue: 'SAPPORO SPIRITUAL LOUNGE',
   detail: '未定',
-  user_id: masamune.id
+  user_id: chutatsu.id
 )
 
 aomori = Booking.create(
