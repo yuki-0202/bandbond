@@ -43,8 +43,18 @@
             <%# 生年月日、地域の選択 %>
             <div class="form-row d-md-flex">
               <div class="my-2 col-5">
-              <label class="info-text mb-2">生年月日</label>
-                <%= f.date_field :birthday, class: 'form-control',value: (Time.now.strftime("%Y-%m-%d")) %>
+                <label class="info-text mb-2">生年月日</label>
+                <div>
+                  <%= raw sprintf(
+                    f.date_select(
+                      :birthday,
+                      use_month_numbers: true,
+                      prompt:'--',
+                      start_year: 1930,
+                      end_year: (Time.now.year),
+                      date_separator: '%s'),
+                    "年 ", "月 ") + "日 " %>
+                </div>
               </div>
               <div class="my-2 mx-md-5 col-5">
                 <label class="info-text mb-2">地域</label>
