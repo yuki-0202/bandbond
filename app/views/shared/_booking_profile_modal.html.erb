@@ -18,7 +18,7 @@
             <p>パート： <%= @booking.user.part.name if @booking.user.part_id.present? %></p>
             <p>ジャンル： <%= @booking.user.genre.name if @booking.user.genre_id.present? %></p>
             <p>自己紹介／メッセージ ▼</p>
-            <p><%= @booking.user.introduction %></p>
+            <p><%= safe_join(@booking.user.introduction.split("\n"),tag(:br))  if @booking.user.introduction.present? %></p>
           </div>
           <div class="modal-footer">
             <% if user_signed_in? && @booking.user.id == current_user.id %>

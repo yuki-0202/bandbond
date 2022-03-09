@@ -24,7 +24,7 @@
             <p>パート： <%= room_user.part.name if room_user.part_id.present? %></p>
             <p>ジャンル： <%= room_user.genre.name if room_user.genre_id.present? %></p>
             <p>自己紹介／メッセージ ▼</p>
-            <p><%= room_user.introduction %></p>
+            <p><%= safe_join(room_user.introduction.split("\n"),tag(:br))  if room_user.introduction.present? %></p>
           </div>
           <div class="modal-footer">
             <% if user_signed_in? && room_user.id == current_user.id %>

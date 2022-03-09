@@ -45,7 +45,7 @@
             </div>
             <%# 詳細 %>
             <div class="detail-box list-scroll">
-              <%=safe_join(@booking.detail.split("\n"),tag(:br))%>
+              <%= safe_join(@booking.detail.split("\n"),tag(:br)) %>
             </div>
 
             <%# 各種ボタン %>
