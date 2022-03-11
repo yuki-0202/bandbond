@@ -22,7 +22,9 @@ body {
 	padding-top:35px;
 	padding-bottom:50px;
   border-radius: 7px;
+  height: 600px;
 	position: relative;
+  overflow: scroll;
 }
 
 .info-text {

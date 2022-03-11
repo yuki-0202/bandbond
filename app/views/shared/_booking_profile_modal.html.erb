@@ -11,22 +11,18 @@
             <%= image_tag 'profile_image.jpg', class: "profile-image"%>
           </div>
           <div class="profile-detail">
-            <p>登録日：<%= @booking.user.created_at.strftime('%Y/%m/%d') %></p>
-            <% if @booking.user.birthday.present? %>
-              <p>年齢：<%= (Date.today.strftime("%Y%m%d").to_i - @booking.user.birthday.to_i) / 10000 %></p>
-            <% else %>
-              <p>年齢：</p>
-            <% end %>
-            <p>性別：<%= @booking.user.sex_id %></p>
-            <p>地域：<%= @booking.user.area_id %></p>
-            <p>パート：<%= @booking.user.part_id %></p>
-            <p>ジャンル：<%= @booking.user.genre_id %></p>
-            <p>自己紹介/メッセージ　▼</p>
-            <p><%= @booking.user.introduction %></p>
+            <p>登録日： <%= @booking.user.created_at.strftime('%Y/%m/%d') %></p>
+            <p>年齢： <%= (Date.today.strftime('%Y%m%d').to_i - @booking.user.birthday.strftime('%Y%m%d').to_i) / 10000 if @booking.user.birthday.present? %></p>
+            <p>性別： <%= @booking.user.sex.name if @booking.user.sex_id.present? %></p>
+            <p>地域： <%= @booking.user.area.name if @booking.user.area_id.present? %></p>
+            <p>パート： <%= @booking.user.part.name if @booking.user.part_id.present? %></p>
+            <p>ジャンル： <%= @booking.user.genre.name if @booking.user.genre_id.present? %></p>
+            <p>自己紹介／メッセージ ▼</p>
+            <p><%= safe_join(@booking.user.introduction.split("\n"),tag(:br))  if @booking.user.introduction.present? %></p>
           </div>
           <div class="modal-footer">
             <% if user_signed_in? && @booking.user.id == current_user.id %>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">編集する</button>
+              <%= link_to '編集する', edit_user_path(current_user.id), class: "btn btn-secondary" %>
             <% end %>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
           </div>

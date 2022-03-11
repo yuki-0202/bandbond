@@ -9,19 +9,39 @@ toshiie = User.create( email: 'ggg@ggg', nickname: '前田利家', password: '11
 motonari = User.create( email: 'hhh@hhh', nickname: '毛利元就', password: '111hhh' )
 mototika = User.create( email: 'iii@iii', nickname: '長宗我部元親', password: '111iii' )
 kiyomasa = User.create( email: 'jjj@jjj', nickname: '加藤清正', password: '111jjj' )
-koumei = User.create( email: 'kkk@kkk', nickname: '諸葛孔明', password: '111kkk' )
-chutatsu = User.create( email: 'mmm@mmm', nickname: '司馬仲達', password: '111mmm' )
+koumei = User.create(
+  email: 'kkk@kkk',
+  nickname: '諸葛孔明',
+  password: '111kkk',
+  birthday: Date.today.ago(20.years),
+  sex_id: 1,
+  genre_id: 11,
+  area_id: 48,
+  part_id: 5,
+  introduction: "天下三分の計"
+)
+chutatsu = User.create(
+  email: 'mmm@mmm',
+  nickname: '司馬仲達',
+  password: '111mmm',
+  birthday: Date.today.ago(20.years),
+  sex_id: 1,
+  genre_id: 9,
+  area_id: 2,
+  part_id: 4,
+  introduction: "罠じゃないよね？"
+)
 
 
 # bookings
 hokkaido = Booking.create(
   area_id: '2',
-  genre_id: '6',
+  genre_id: '11',
   date_start: Date.today,
   date_end: Date.tomorrow,
   venue: 'SAPPORO SPIRITUAL LOUNGE',
   detail: '未定',
-  user_id: masamune.id
+  user_id: chutatsu.id
 )
 
 aomori = Booking.create(
