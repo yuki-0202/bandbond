@@ -14,10 +14,8 @@
               ブッキング
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to '投稿', new_booking_path, class: "dropdown-item" %></li>
-              <li><a class="dropdown-item disabled" href="#">編集</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item disabled" href="#">削除</a></li>
+              <li><%= link_to '新規投稿', new_booking_path, class: "dropdown-item" %></li>
+              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#myBookingModal">投稿履歴</a></li>
             </ul>
           </li>
 
@@ -109,6 +107,9 @@
 
       <!-- Modal（プロフィール詳細） -->
       <%= render "shared/profile_modal"%>
+
+      <!-- Modal（投稿履歴） -->
+      <%= render "shared/my_booking_modal"%>
 
     </div>
   </div>
