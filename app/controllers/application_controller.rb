@@ -18,6 +18,20 @@ class ApplicationController < ActionController::Base
   def set_header
     @q = Booking.ransack(params[:q])
     @search_bookings = @q.result
+
+    # 投稿履歴
     @my_bookings = Booking.where(user_id: current_user.id).order('updated_at DESC') if user_signed_in?
+
+    # チャット履歴
+    if user_signed_in?
+      my_bookig_rooms = Room.where(user_id: current_user.id)
+      my_message_rooms = []
+      @my_bookings.each do |booking|
+        booking.rooms.each do |room|
+          my_message_rooms << room
+        end
+      end
+      @my_rooms = (my_bookig_rooms + my_message_rooms).sort_by{|x| x.messages.last.created_at}.reverse
+    end
   end
 end

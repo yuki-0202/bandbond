@@ -1,0 +1,24 @@
+<!-- Modal（チャット履歴） -->
+<div class="modal fade" id="myRoomModal" tabindex="-1" aria-labelledby="myRoomModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myRoomModalLabel">チャット履歴</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <% if @my_rooms.present? %>
+          <%# <%= render partial: 'shared/m_my_message', collection: @my_message_rooms %>
+  <% @my_rooms.each do |room| %>
+    <%= render partial: 'shared/m_my_message', locals: { room: room } %>
+  <% end %>
+        <% else %>
+          チャット履歴はありません
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">もどる</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -24,10 +24,7 @@
               チャット
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item disabled" href="#">unknown</a></li>
-              <li><a class="dropdown-item disabled" href="#">unknown</a></li>
-              <li><a class="dropdown-item disabled" href="#">unknown</a></li>
-              <li><a class="dropdown-item disabled" href="#">unknown</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#myRoomModal">チャット履歴</a></li>
             </ul>
           </li>
 
@@ -62,9 +59,6 @@
           <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#loginModal">
             チャット
           </a>
-          <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#loginModal">
-            プロフィール
-          </a>
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -96,6 +90,9 @@
 
       <!-- Modal（投稿履歴） -->
       <%= render "shared/m_my_booking"%>
+
+      <!-- Modal（チャット履歴） -->
+      <%= render "shared/m_my_room"%>
 
       <!-- Modal（ログイン案内） -->
       <%= render "shared/m_login" %>
