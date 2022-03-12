@@ -24,14 +24,17 @@ class ApplicationController < ActionController::Base
 
     # チャット履歴
     if user_signed_in?
-      my_bookig_rooms = Room.where(user_id: current_user.id)
       my_message_rooms = []
+      my_bookig_rooms = Room.where(user_id: current_user.id)
+      my_bookig_rooms.each do |room|
+        my_message_rooms << room if room.messages.present?
+      end
       @my_bookings.each do |booking|
         booking.rooms.each do |room|
-          my_message_rooms << room
+          my_message_rooms << room if room.messages.present?
         end
       end
-      @my_rooms = (my_bookig_rooms + my_message_rooms).sort_by{|x| x.messages.last.created_at}.reverse
+      @my_rooms = my_message_rooms.sort_by{|x| x.messages.last.created_at}.reverse
     end
   end
 end

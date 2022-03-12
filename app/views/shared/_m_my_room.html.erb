@@ -6,16 +6,17 @@
         <h5 class="modal-title" id="myRoomModalLabel">チャット履歴</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+
+      <div class="modal-body history-list">
         <% if @my_rooms.present? %>
-          <%# <%= render partial: 'shared/m_my_message', collection: @my_message_rooms %>
-  <% @my_rooms.each do |room| %>
-    <%= render partial: 'shared/m_my_message', locals: { room: room } %>
-  <% end %>
+          <% @my_rooms.each do |room| %>
+            <%= render partial: 'shared/m_my_message', locals: { room: room } %>
+          <% end %>
         <% else %>
           チャット履歴はありません
         <% end %>
       </div>
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">もどる</button>
       </div>
