@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :basic_auth
-  before_action :set_search
-  before_action :set_my_bookings
+  before_action :set_header
 
   private
 
@@ -16,12 +15,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_search
+  def set_header
     @q = Booking.ransack(params[:q])
     @search_bookings = @q.result
-  end
-
-  def set_my_bookings
     @my_bookings = Booking.where(user_id: current_user.id).order('updated_at DESC') if user_signed_in?
   end
 end
