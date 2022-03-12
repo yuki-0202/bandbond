@@ -33,16 +33,6 @@
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              プロフィール
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item disabled" href="#">詳細</a></li>
-              <li><a class="dropdown-item disabled" href="#">編集</a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               検索
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -85,10 +75,6 @@
               <li><a class="dropdown-item disabled" href="#">ユーザー検索</a></li>
             </ul>
           </li>
-
-          <!-- Modal（ログイン案内） -->
-          <%= render "shared/login_modal" %>
-
         </ul>
       </div>
       <ul class="navbar-nav mb-2 mb-lg-0">
@@ -103,14 +89,16 @@
     <!-------------------ここまで------------------->
 
       <!-- Modal（ブッキング検索） -->
-      <%= render "shared/search_modal" %>
+      <%= render "shared/m_search" %>
 
       <!-- Modal（プロフィール詳細） -->
-      <%= render "shared/profile_modal"%>
+      <%= render "shared/m_profile"%>
 
       <!-- Modal（投稿履歴） -->
-      <%= render "shared/my_booking_modal"%>
+      <%= render "shared/m_my_booking"%>
 
+      <!-- Modal（ログイン案内） -->
+      <%= render "shared/m_login" %>
     </div>
   </div>
 </nav>

@@ -121,7 +121,7 @@
 
       <div class="modal-body">
         <% if @rooms.present? %>
-          <%= render partial: 'room', collection: @rooms %>
+          <%= render partial: 'shared/room', collection: @rooms %>
         <% else %>
           まだチャットはありません
         <% end %>
@@ -135,6 +135,6 @@
 </div>
 
 <!-- Modal（ログイン案内） -->
-<%= render "shared/login_modal" %>
+<%= render "shared/m_login" %>
 <!-- Modal（ブッキング投稿者 プロフィール詳細） -->
-<%= render "shared/booking_profile_modal" %>
+<%= render "shared/m_booking_profile" %>
