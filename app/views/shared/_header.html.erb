@@ -18,7 +18,6 @@
               <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#myBookingModal">投稿履歴</a></li>
             </ul>
           </li>
-
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               チャット
@@ -27,17 +26,14 @@
               <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#myRoomModal">チャット履歴</a></li>
             </ul>
           </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              検索
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#searchModal">ブッキング検索</button></li>
-              <li><a class="dropdown-item disabled" href="#">ユーザー検索</a></li>
-            </ul>
-          </li>
-
+          <%= search_form_for @q, url: search_bookings_path, html: {id: "detailed-search-form"} do |f| %>
+            <div class="form-row d-md-flex">
+              <%= f.collection_select(:area_id_eq, Area.all, :id, :name, {include_blank: "地域"}, {class: "form-select mx-1 bg-dark text-secondary border-success rounded-pill", id:"search-area-select"}) %>
+              <%= f.collection_select(:genre_id_eq, Genre.all, :id, :name, {include_blank: "ジャンル"}, {class: "form-select mx-1 bg-dark text-secondary border-success rounded-pill"}) %>
+              <%= f.submit 'Search', class: "btn btn-outline-success rounded-pill mx-1", id: "search-submit" %>
+              <i class="bi bi-search"></i>
+            </div>
+          <% end %>
         </ul>
       </div>
       <ul class="navbar-nav mb-2 mb-lg-0">
@@ -59,16 +55,14 @@
           <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#loginModal">
             チャット
           </a>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              検索
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#searchModal">ブッキング検索</button></li>
-              <li><a class="dropdown-item disabled" href="#">ユーザー検索</a></li>
-            </ul>
-          </li>
+          <%= search_form_for @q, url: search_bookings_path, html: {id: "detailed-search-form"} do |f| %>
+            <div class="form-row d-md-flex">
+              <%= f.collection_select(:area_id_eq, Area.all, :id, :name, {include_blank: "地域"}, {class: "form-select mx-1 bg-dark text-secondary border-success rounded-pill", id:"search-area-select"}) %>
+              <%= f.collection_select(:genre_id_eq, Genre.all, :id, :name, {include_blank: "ジャンル"}, {class: "form-select mx-1 bg-dark text-secondary border-success rounded-pill"}) %>
+              <%= f.submit 'Search', class: "btn btn-outline-success rounded-pill mx-1", id: "search-submit" %>
+              <i class="bi bi-search"></i>
+            </div>
+          <% end %>
         </ul>
       </div>
       <ul class="navbar-nav mb-2 mb-lg-0">
@@ -81,9 +75,6 @@
       </ul>
     <% end %>
     <!-------------------ここまで------------------->
-
-      <!-- Modal（ブッキング検索） -->
-      <%= render "shared/m_search" %>
 
       <!-- Modal（プロフィール詳細） -->
       <%= render "shared/m_profile"%>
