@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def set_header
     @q = Booking.ransack(params[:q])
-    @search_bookings = @q.result
+    @search_bookings = @q.result.order('updated_at DESC')
 
     # 投稿履歴
     @my_bookings = Booking.where(user_id: current_user.id).order('updated_at DESC') if user_signed_in?
