@@ -63,6 +63,11 @@ body {
   display: none;
 }
 
+.history-list {
+  height: 400px;
+  overflow-y: scroll;
+}
+
 /*------------------ クリッカブルマップ ------------------*/
 
 .map {

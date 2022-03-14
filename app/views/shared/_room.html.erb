@@ -1,0 +1,46 @@
+
+<% if room.messages.present? && user_signed_in? %>
+
+  <!-------------------上段------------------->
+
+  <%= link_to room_path(room[:id]), class: 'list-group-item list-group-item-action' do %>
+    <div class="booking-list-top">
+
+      <% if room.users[0].id == @booking.user.id %>
+        <% user = room.users[1] %>
+      <% else %>
+        <% user = room.users[0] %>
+      <% end %>
+
+      <%# 名前 %>
+      <%= user.nickname %>さん
+
+      <%# 投稿日時 %>
+      <div>
+        <span class="badge bg-info rounded-pill">
+          <%= l room.messages.last.created_at %>
+        </span>
+      </div>
+
+    </div>
+    
+    <!-------------------下段------------------->
+
+    <div class="booking-list-bottom">
+
+      <%# 最新のチャット %>
+        <% if room.messages.last.user.id != current_user.id %>
+          <div class="chatting">
+            <div class="says">
+              <p><%= room.messages.last.content %></p>
+            </div>
+          </div>
+        <% else %>
+          <div class="mycomment ms-auto">
+            <p><%= room.messages.last.content %></p>
+          </div>
+        <% end%>
+
+    </div>
+  <% end %>
+<% end %>
