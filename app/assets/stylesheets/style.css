@@ -254,6 +254,10 @@ body {
 	margin-bottom: 40px;
 }
 
+.error-alert {
+  width: 80%;
+}
+
 /*------------------ ブッキング ------------------*/
 
 .list-scroll {
