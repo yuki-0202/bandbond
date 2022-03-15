@@ -235,9 +235,14 @@ body {
 	margin-top: 10%;
 }
 
+#error_explanation h2 {
+  font-size: large;
+}
+
 .login-flash-message {
 	color: #ff6347;
 	margin-top: 10%;
+  font-size: large;
 }
 
 .field_with_errors {
