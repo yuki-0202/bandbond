@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
         expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
 
-      it 'passwordは、５文字以下では登録できない' do
+      it 'passwordは、5文字以下では登録できない' do
         @user.password = '123ab'
         @user.password_confirmation = '123ab'
         @user.valid?
