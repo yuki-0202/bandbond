@@ -14,68 +14,50 @@ RSpec.describe Booking, type: :model do
 
     context 'ブッキング投稿ができない場合' do
       it '地域の情報がないと投稿できない' do
-        I18n.with_locale(:ja) do
-          @booking.area_id = '1'
-          @booking.valid?
-          expect(@booking.errors.full_messages).to include("地域を入力してください")
-        end
+        @booking.area_id = '1'
+        @booking.valid?
+        expect(@booking.errors.full_messages).to include("地域を入力してください")
       end
       it 'ジャンルの情報がないと投稿できない' do
-        I18n.with_locale(:ja) do
-          @booking.genre_id = '1'
-          @booking.valid?
-          expect(@booking.errors.full_messages).to include("ジャンルを入力してください")
-        end
+        @booking.genre_id = '1'
+        @booking.valid?
+        expect(@booking.errors.full_messages).to include("ジャンルを入力してください")
       end
       it '開催期間（開始）が空では投稿できない' do
-        I18n.with_locale(:ja) do
-          @booking.date_start = nil
-          @booking.valid?
-          expect(@booking.errors.full_messages).to include("開催期間（開始）を入力してください")
-        end
+        @booking.date_start = nil
+        @booking.valid?
+        expect(@booking.errors.full_messages).to include("開催期間（開始）を入力してください")
       end
       it '開催期間（開始）が現在より過去の日付では投稿できない' do
-        I18n.with_locale(:ja) do
-          @booking.date_start = Date.yesterday
-          @booking.valid?
-          expect(@booking.errors.full_messages).to include("開催期間（開始）を過去の日付にすることはできません")
-        end
+        @booking.date_start = Date.yesterday
+        @booking.valid?
+        expect(@booking.errors.full_messages).to include("開催期間（開始）を過去の日付にすることはできません")
       end
       it '開催期間（終了）が空では投稿できない' do
-        I18n.with_locale(:ja) do
-          @booking.date_end = nil
-          @booking.valid?
-          expect(@booking.errors.full_messages).to include("開催期間（終了）を入力してください")
-        end
+        @booking.date_end = nil
+        @booking.valid?
+        expect(@booking.errors.full_messages).to include("開催期間（終了）を入力してください")
       end
       it '開催期間（終了）が現在より過去の日付では投稿できない' do
-        I18n.with_locale(:ja) do
-          @booking.date_end = Date.yesterday
-          @booking.valid?
-          expect(@booking.errors.full_messages).to include("開催期間（終了）を過去の日付にすることはできません")
-        end
+        @booking.date_end = Date.yesterday
+        @booking.valid?
+        expect(@booking.errors.full_messages).to include("開催期間（終了）を過去の日付にすることはできません")
       end
       it '開催期間（終了）が開催期間（開始）より過去の日付では投稿できない' do
-        I18n.with_locale(:ja) do
-          @booking.date_start = Date.tomorrow
-          @booking.date_end = Date.today
-          @booking.valid?
-          expect(@booking.errors.full_messages).to include("開催期間（終了）を開催期間（開始）より過去の日付にすることはできません")
-        end
+        @booking.date_start = Date.tomorrow
+        @booking.date_end = Date.today
+        @booking.valid?
+        expect(@booking.errors.full_messages).to include("開催期間（終了）を開催期間（開始）より過去の日付にすることはできません")
       end
       it '会場が空では投稿できない' do
-        I18n.with_locale(:ja) do
-          @booking.venue = ''
-          @booking.valid?
-          expect(@booking.errors.full_messages).to include("会場を入力してください")
-        end
+        @booking.venue = ''
+        @booking.valid?
+        expect(@booking.errors.full_messages).to include("会場を入力してください")
       end
       it '詳細が空では投稿できない' do
-        I18n.with_locale(:ja) do
-          @booking.detail = ''
-          @booking.valid?
-          expect(@booking.errors.full_messages).to include("詳細を入力してください")
-        end
+        @booking.detail = ''
+        @booking.valid?
+        expect(@booking.errors.full_messages).to include("詳細を入力してください")
       end
     end
   end
