@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Message, type: :model do
-
   user = FactoryBot.create(:user)
   let(:message) { FactoryBot.create(:message) }
 

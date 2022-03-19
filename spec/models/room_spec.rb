@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Room, type: :model do
-    user = FactoryBot.create(:user)
-    let(:room) { FactoryBot.create(:room) }
+  user = FactoryBot.create(:user)
+  let(:room) { FactoryBot.create(:room) }
 
   describe 'チャットルーム作成' do
     context '新規作成できる場合' do
