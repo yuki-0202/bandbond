@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_room_set_booking, only: [:show, :destroy]
 
   def create
