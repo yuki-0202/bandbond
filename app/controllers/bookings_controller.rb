@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @rooms = Room.where(booking_id: params[:id])
+    @rooms = Room.where(booking_id: params[:id]).includes(:users, :messages)
   end
 
   def edit
