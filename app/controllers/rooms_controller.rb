@@ -10,7 +10,7 @@ class RoomsController < ApplicationController
 
   def show
     @message = Message.new
-    @messages = @room.messages.includes(:user)
+    @messages = @room.messages
   end
 
   def destroy
