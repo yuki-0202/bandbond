@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :basic_auth
-  before_action :set_header
+  before_action :set_header_search
+  before_action :set_header_booking, if: :user_signed_in?
+  before_action :set_header_chat, if: :user_signed_in?
 
   private
 
@@ -17,18 +19,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_header
+  def set_header_search
     @q = Booking.ransack(params[:q])
     @search_bookings = @q.result.order('updated_at DESC')
+  end
 
-    # 投稿履歴
-    if user_signed_in?
-      @my_bookings = Booking.where(user_id: current_user.id).order('updated_at DESC').includes(rooms: [:users, :messages])
-    end
+  def set_header_booking
+    @my_bookings = Booking.where(user_id: current_user.id).order('updated_at DESC').includes(rooms: [:users, :messages])
+  end
 
-    # チャット履歴
-    return unless user_signed_in?
-
+  def set_header_chat
     my_message_rooms = []
     my_bookig_rooms = Room.where(user_id: current_user.id).includes(:messages, :users)
     my_bookig_rooms.each do |room|
