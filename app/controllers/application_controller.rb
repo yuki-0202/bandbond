@@ -22,21 +22,23 @@ class ApplicationController < ActionController::Base
     @search_bookings = @q.result.order('updated_at DESC')
 
     # 投稿履歴
-    @my_bookings = Booking.where(user_id: current_user.id).order('updated_at DESC').includes(rooms: :users, rooms: :messages) if user_signed_in?
+    if user_signed_in?
+      @my_bookings = Booking.where(user_id: current_user.id).order('updated_at DESC').includes(rooms: [:users, :messages])
+    end
 
     # チャット履歴
-    if user_signed_in?
-      my_message_rooms = []
-      my_bookig_rooms = Room.where(user_id: current_user.id).includes(:messages, :users)
-      my_bookig_rooms.each do |room|
+    return unless user_signed_in?
+
+    my_message_rooms = []
+    my_bookig_rooms = Room.where(user_id: current_user.id).includes(:messages, :users)
+    my_bookig_rooms.each do |room|
+      my_message_rooms << room if room.messages.present?
+    end
+    @my_bookings.each do |booking|
+      booking.rooms.each do |room|
         my_message_rooms << room if room.messages.present?
       end
-      @my_bookings.each do |booking|
-        booking.rooms.each do |room|
-          my_message_rooms << room if room.messages.present?
-        end
-      end
-      @my_rooms = my_message_rooms.sort_by { |x| x.messages.last.created_at }.reverse
     end
+    @my_rooms = my_message_rooms.sort_by { |x| x.messages.last.created_at }.reverse
   end
 end
