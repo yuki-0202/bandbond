@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   before_action :move_to_index, only: [:edit, :destroy]
 
   def index
-    @bookings = Booking.all.order('updated_at DESC')
+    @bookings = Booking.all.order('updated_at DESC').includes(:user)
   end
 
   def new
