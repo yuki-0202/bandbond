@@ -73,7 +73,7 @@ https://bandbond.herokuapp.com/
 
 # データベース設計
 
-[![Image from Gyazo](https://i.gyazo.com/254c4cdd6438ada2946221e4a3cd35bf.png)](https://gyazo.com/254c4cdd6438ada2946221e4a3cd35bf)
+[![Image from Gyazo](https://i.gyazo.com/5662de7a9d5ea124b087a48386346553.png)](https://gyazo.com/5662de7a9d5ea124b087a48386346553)
 
 # 画面遷移図
 
@@ -123,7 +123,7 @@ https://bandbond.herokuapp.com/
 | Column         | Type       | Option                         |
 | -------------- | ---------- | ------------------------------ |
 | booking        | references | null: false, foreign_key: true | 
-| user           | references | null: false, foreign_key: true | 
+| user_id        | integer    | null: false                    | 
 
 ### Association
 - belongs to :booking
