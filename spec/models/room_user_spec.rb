@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe RoomUser, type: :model do
-  user = FactoryBot.create(:user)
   let(:room_user) { FactoryBot.create(:room_user) }
 
   describe '中間テーブル作成' do
