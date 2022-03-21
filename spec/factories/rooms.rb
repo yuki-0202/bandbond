@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :room do
     association :booking
-    user_id { User.take.id } # usersテーブルにレコードが1件以上ある前提
+    user_id { Faker::Number.digit }
   end
 end
