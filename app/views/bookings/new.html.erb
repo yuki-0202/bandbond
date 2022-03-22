@@ -5,14 +5,10 @@
     <div class="row">
 <!--------------クリッカブルマップ-------------->
       <div class="my-4 col-lg-6">
-
           <div class="title-box">
             <h1 class="title-text">Booking post</h1>
             <h1 class="title-text text-filter">Booking post</h1>
-
-            <%# エラーメッセージ＆マップテキスト %>
-            <%= render 'shared/error_messages', model: @booking %>
-
+            <%= render 'shared/error_messages', model: @booking %> <%# エラーメッセージ＆マップテキスト %>
           </div>
         <%= render "shared/map"%>
       </div>
@@ -21,7 +17,6 @@
         <div class="form-box">
           <%= form_with model: @booking, local: true do |f| %>
 
-            <%# 地域、ジャンルの選択 %>
             <div class="form-row d-md-flex">
               <div class="my-2 col-5">
                 <label class="info-text mb-2">地域</label>
@@ -33,31 +28,27 @@
               </div>
             </div>
 
-            <%# 開催期間の選択 %>
             <div class="form-row d-md-flex">
               <div class="my-2 col-5">
-              <label class="info-text mb-2">開催期間（開始）</label>
+                <label class="info-text mb-2">開催期間（開始）</label>
                 <%= f.date_field :date_start, class: 'form-control',value: (Time.now.strftime("%Y-%m-%d")) %>
               </div>
               <div class="my-2 mx-md-5 col-5">
-            <label class="info-text mb-2">開催期間（終了）</label>
+                <label class="info-text mb-2">開催期間（終了）</label>
                 <%= f.date_field :date_end, class: 'form-control',value: (Time.now.strftime("%Y-%m-%d")) %>
               </div>
             </div>
 
-            <%# 会場の入力 %>
             <div class="my-2">
               <label class="info-text mb-2">会場</label>
               <%= f.text_field :venue, class:"form-control", id:"", placeholder:"未定の場合は「未定」と入力してください", maxlength:"20" %>
             </div>
 
-            <%# 詳細の入力 %>
             <div class="my-2">
               <label class="info-text mb-2">詳細</label>
               <%= f.text_area :detail, class:"form-control", rows: 8, placeholder:"詳細は必ず入力してください" %>
             </div>
 
-            <%# 投稿ボタン %>
             <div class="d-flex">
               <div class='actions'>
                 <%= f.submit "投稿する" ,class:"mt-2 btn btn-primary" %>
@@ -73,7 +64,5 @@
     </div>
   </div>
 </main>
-
-
 
 <%= render "shared/footer" %>
