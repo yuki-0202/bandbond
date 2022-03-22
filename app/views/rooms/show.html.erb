@@ -31,7 +31,7 @@
 
           <div class="div-color mt-2 justify-content-between align-items-center">
             <div class="m-2">
-              <!--送信フォーム-->
+              <!--チャット送信フォーム-->
               <%= form_with model: [@room, @message], local: true do |f| %>
                 <div class="form-row d-flex">
                   <div class="form-group col-10">
@@ -42,14 +42,14 @@
                   </div>
                 </div>
               <% end %>
-              <!--送信フォーム end-->
+              <!--チャット送信フォーム end-->
             </div>
 
             <div class="m-2">
               <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                 ブッキング詳細を表示
               </button>
-              <% if @room.messages.present? %>
+              <% if @messages.present? %>
                 <%= link_to 'もどる', booking_path(@booking.id), class: "btn btn-secondary mx-2"%>
               <% else %>
                 <%= link_to 'もどる', room_path(@room), method: :delete, class: "btn btn-secondary mx-2"%>
@@ -63,6 +63,8 @@
   </div>
 </main>
 
+<!-- Modal（ブッキング投稿者 プロフィール詳細） -->
+<%= render "shared/m_booking_profile" %>
 
 <%# ---------- オフキャンバス（ブッキング詳細） ---------- %>
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
@@ -72,27 +74,21 @@
   </div>
   <div class="offcanvas-body">
     <div class="booking-show-top">
-      <%# 会場 %>
       <%= @booking.venue %>
-      <%# 都道府県 %>
       (<%= @booking.area.name %>)
-      <%# ジャンル %>
       <div><span class="badge bg-info rounded-pill">
         <%= @booking.genre.name %>
       </span></div>
     </div>
 
-    <%# 開催期間 %>
     <div class="booking-show-middle">
       <div>
         <%= @booking.date_start %>〜<%= @booking.date_end %>
       </div>
-      <%# 投稿者名 %>
-      <div>
+      <div data-bs-toggle="modal" data-bs-target="#bookingProfileModal">
         <%= link_to @booking.user.nickname, '#' %>
       </div>
     </div>
-    <%# 詳細 %>
     <div class="detail-box list-scroll">
       <%=safe_join(@booking.detail.split("\n"),tag(:br))%>
     </div>
