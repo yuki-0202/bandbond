@@ -20,36 +20,28 @@
       <%# ---------- ブッキング詳細 ---------- %>
       <div class="my-4 col-md-6">
         <div class="list-group">
+        
           <div class="booking-show-box">
-
             <div class="booking-show-top">
-              <%# 会場 %>
               <%= @booking.venue %>
-              <%# 都道府県 %>
               (<%= @booking.area.name %>)
-              <%# ジャンル %>
               <div><span class="badge bg-info rounded-pill">
                 <%= @booking.genre.name %>
               </span></div>
             </div>
-
-            <%# 開催期間 %>
             <div class="booking-show-middle">
               <div>
                 開催期間：<%= @booking.date_start %>〜<%= @booking.date_end %>
               </div>
-              <%# 投稿者名 %>
               <div data-bs-toggle="modal" data-bs-target="#bookingProfileModal">
                 <%= link_to @booking.user.nickname, '#' %>
               </div>
             </div>
-            <%# 詳細 %>
             <div class="detail-box list-scroll">
               <%= safe_join(@booking.detail.split("\n"),tag(:br)) %>
             </div>
-
-            <%# 各種ボタン %>
           </div>
+
           <div class="div-color mt-2">
             <div class="m-2 d-flex  justify-content-between">
             
