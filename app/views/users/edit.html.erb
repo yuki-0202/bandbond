@@ -4,23 +4,18 @@
   <div class="container">
     <div class="row row-size">
 
-<!--------------クリッカブルマップ-------------->
+<!-------------- クリッカブルマップ -------------->
       <div class="my-4 col-lg-6">
-
           <div class="title-box">
             <h1 class="title-text">Profile edit</h1>
             <h1 class="title-text text-filter">Profile edit</h1>
-
-            <%# エラーメッセージ＆マップテキスト %>
-            <%= render 'shared/error_messages', model: current_user %>
-
+            <%= render 'shared/error_messages', model: current_user %> <%# エラーメッセージ＆マップテキスト %>
           </div>
         <%= render "shared/map"%>
       </div>
-<!--------------ユーザー情報編集フォーム-------------->
+<!-------------- ユーザー情報編集フォーム -------------->
       <div class="my-4 col-md-6" >
         <div class="form-box">
-
           <%= form_with model: current_user, local: true do |f| %>
 
             <%# メールアドレス、画像の選択 %>
@@ -48,22 +43,19 @@
               <div class="my-2 col-5">
                 <label class="info-text mb-2">生年月日</label>
                 <div class="d-flex">
-
                   <%= f.date_select :birthday, {
                     use_month_numbers: true,
                     prompt:'--', start_year: 1930,
                     end_year: (Time.now.year)
                     },
-                    {class: "form-control w-auto text-center mx-2"} %>
-
-
+                    {class: "form-control w-auto text-center mx-2"}
+                  %>
                 </div>
               </div>
               <div class="my-2 mx-md-5 col-5">
                 <label class="info-text mb-2">地域</label>
                 <%= f.collection_select(:area_id, Area.all, :id, :name, {include_blank: "---"}, {class: "form-select", id:"area-select"}) %>
               </div>
-
             </div>
 
             <%# ジャンル、パートの選択 %>
@@ -84,13 +76,14 @@
               <%= f.text_area :introduction, class:"form-control", rows: 8 %>
             </div>
 
+            <%# 各種ボタン %>
             <%= f.submit "更新する", class:"btn btn-primary" %>
             <%= link_to 'もどる', root_path, class: "btn btn-secondary mx-2"%>
 
           <% end %>
         </div>
       </div>
-
+<!-------------- ユーザー情報編集フォーム end -------------->
     </div>
   </div>
 </div>
