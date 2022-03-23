@@ -1,4 +1,4 @@
-# users
+# -------------------- users --------------------
 nobunaga = User.create( email: 'aaa@aaa', nickname: '織田信長', password: '111aaa' )
 hideyosi = User.create( email: 'bbb@bbb', nickname: '豊臣秀吉', password: '111bbb' )
 ieyasu = User.create( email: 'ccc@ccc', nickname: '徳川家康', password: '111ccc' )
@@ -33,11 +33,11 @@ chutatsu = User.create(
 )
 
 
-# bookings
+# -------------------- bookings --------------------
 hokkaido = Booking.create(
   area_id: '2',
   genre_id: '11',
-  date_start: Date.today,
+  date_start: Date.tomorrow,
   date_end: Date.tomorrow,
   venue: 'SAPPORO SPIRITUAL LOUNGE',
   detail: '未定',
@@ -57,7 +57,7 @@ aomori = Booking.create(
 iwate = Booking.create(
   area_id: '4',
   genre_id: '6',
-  date_start: Date.today,
+  date_start: Date.tomorrow,
   date_end: Date.tomorrow,
   venue: 'CLUB CHANGE WAVE',
   detail: '未定',
@@ -97,7 +97,7 @@ yamagata = Booking.create(
 hukushima = Booking.create(
   area_id: '8',
   genre_id: '6',
-  date_start: Date.today,
+  date_start: Date.tomorrow,
   date_end: Date.tomorrow,
   venue: 'Live Space C-moon',
   detail: '未定',
@@ -188,7 +188,7 @@ kanagawa = Booking.create(
   area_id: '15',
   genre_id: '4',
   date_start: Date.today,
-  date_end: Date.tomorrow,
+  date_end: Date.today,
   venue: "CLUB CITTA'",
   detail: '未定',
   user_id: ieyasu.id
@@ -197,7 +197,7 @@ kanagawa = Booking.create(
 niigata = Booking.create(
   area_id: '16',
   genre_id: '3',
-  date_start: Date.today,
+  date_start: Date.tomorrow,
   date_end: Date.tomorrow,
   venue: 'Live House柳都SHOW!CASE!!',
   detail: '未定',
@@ -277,7 +277,7 @@ shizuoka = Booking.create(
 aichi_1 = Booking.create(
   area_id: '24',
   genre_id: '8',
-  date_start: Date.today,
+  date_start: Date.tomorrow,
   date_end: Date.tomorrow,
   venue: '名古屋クラブクアトロ',
   detail: '未定',
@@ -308,7 +308,7 @@ shiga = Booking.create(
   area_id: '26',
   genre_id: '8',
   date_start: Date.today,
-  date_end: Date.tomorrow,
+  date_end: Date.today,
   venue: 'LIVEHOUSE CLUB B-FLAT',
   detail: '未定',
   user_id: hideyosi.id
@@ -427,7 +427,7 @@ hiroshima = Booking.create(
 yamaguchi = Booking.create(
   area_id: '36',
   genre_id: '2',
-  date_start: Date.today,
+  date_start: Date.tomorrow,
   date_end: Date.tomorrow,
   venue: 'ライブハウス Gumbo',
   detail: '未定',
@@ -458,7 +458,7 @@ ehime = Booking.create(
   area_id: '39',
   genre_id: '7',
   date_start: Date.today,
-  date_end: Date.tomorrow,
+  date_end: Date.today,
   venue: 'LIVEHOUSE KITTYHALL',
   detail: '未定',
   user_id: mototika.id
@@ -555,7 +555,7 @@ okinawa = Booking.create(
 )
 
 
-# rooms, room_users, messages
+# -------------------- rooms, room_users, messages --------------------
 room = Room.create( booking_id: okinawa.id, user_id: nobunaga.id )
 RoomUser.create( room_id: room.id, user_id: nobunaga.id )
 RoomUser.create( room_id: room.id, user_id: koumei.id )
