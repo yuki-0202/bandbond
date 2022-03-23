@@ -23,7 +23,8 @@ class UsersController < ApplicationController
       :genre_id,
       :area_id,
       :part_id,
-      :introduction
+      :introduction,
+      :image
     )
   end
 end
