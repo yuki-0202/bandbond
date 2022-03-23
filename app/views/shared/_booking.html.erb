@@ -10,7 +10,11 @@
 
   <div class="booking-list-bottom">
     <div>
-      開催期間：<%= booking.date_start %>〜<%= booking.date_end %>
+      <% if booking.date_start == booking.date_end %>
+        開催予定日：<%= booking.date_start %>
+      <% else %>
+        開催予定期間：<%= booking.date_start %>〜<%= booking.date_end %>
+      <% end%>
     </div>
     <div>
       <%= booking.user.nickname %>
