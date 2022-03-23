@@ -24,6 +24,10 @@
                 <label class="info-text mb-2">メールアドレス</label>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
               </div>
+              <div class="my-2 mx-md-5 col-5">
+                <label class="info-text mb-2 ">画像</label>
+                  <%= f.file_field :image, class: "form-control" %>
+              </div>
             </div>
 
             <%# 名前、性別の選択 %>
