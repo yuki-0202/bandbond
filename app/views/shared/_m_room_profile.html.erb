@@ -8,31 +8,31 @@
 <div class="modal fade" id="roomProfileModal" tabindex="-1" aria-labelledby="roomProfileModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="roomProfileModalLabel"><%= room_user.nickname %></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-          <div class="profile-image-box">
-            <%= image_tag 'profile_image.jpg', class: "profile-image"%>
-          </div>
-          <div class="profile-detail">
-            <p>登録日： <%= room_user.created_at.strftime('%Y/%m/%d') %></p>
-            <p>年齢： <%= (Date.today.strftime('%Y%m%d').to_i - room_user.birthday.strftime('%Y%m%d').to_i) / 10000 if room_user.birthday.present? %></p>
-            <p>性別： <%= room_user.sex.name if room_user.sex_id.present? %></p>
-            <p>地域： <%= room_user.area.name if room_user.area_id.present? %></p>
-            <p>パート： <%= room_user.part.name if room_user.part_id.present? %></p>
-            <p>ジャンル： <%= room_user.genre.name if room_user.genre_id.present? %></p>
-            <p>自己紹介／メッセージ ▼</p>
-            <p><%= safe_join(room_user.introduction.split("\n"),tag(:br))  if room_user.introduction.present? %></p>
-          </div>
-          <div class="modal-footer">
-            <% if user_signed_in? && room_user.id == current_user.id %>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">編集する</button>
-            <% end %>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
-          </div>
+      <div class="modal-header">
+        <h5 class="modal-title" id="roomProfileModalLabel"><%= room_user.nickname %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="profile-image-box">
+          <%= image_tag 'profile_image.jpg', class: "profile-image"%>
         </div>
+        <div class="profile-detail">
+          <p>登録日： <%= room_user.created_at.strftime('%Y/%m/%d') %></p>
+          <p>年齢： <%= (Date.today.strftime('%Y%m%d').to_i - room_user.birthday.strftime('%Y%m%d').to_i) / 10000 if room_user.birthday.present? %></p>
+          <p>性別： <%= room_user.sex.name if room_user.sex_id.present? %></p>
+          <p>地域： <%= room_user.area.name if room_user.area_id.present? %></p>
+          <p>パート： <%= room_user.part.name if room_user.part_id.present? %></p>
+          <p>ジャンル： <%= room_user.genre.name if room_user.genre_id.present? %></p>
+          <p>自己紹介／メッセージ ▼</p>
+          <p><%= safe_join(room_user.introduction.split("\n"),tag(:br))  if room_user.introduction.present? %></p>
+        </div>
+        <div class="modal-footer">
+          <% if user_signed_in? && room_user.id == current_user.id %>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">編集する</button>
+          <% end %>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
