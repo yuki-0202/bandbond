@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require('jquery')
 require("../map")
+require("../preview")
 import "bootstrap"
 import "../stylesheets/application"
 
