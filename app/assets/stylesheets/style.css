@@ -447,13 +447,13 @@ body {
 .profile-image-box {
   display: flex;
   justify-content: center;
-  height: 300px;
-  width: 100%;
+  padding-bottom: 20px;
+  overflow: hidden;
 }
 
 .profile-image {
-  margin-bottom:20px;
-}
+  height: 280px;
+} 
 
 .profile-detail {
   height: 35vh;
@@ -464,3 +464,20 @@ body {
 .profile-detail p {
   font-size: medium;
 }
+
+.preview-image-box {
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  width: 100%;
+  background-color: white;
+  border-radius: 7px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.preview-image {
+  height: 260px;
+  width: 100%;
+} 
+

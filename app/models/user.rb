@@ -13,6 +13,7 @@ class User < ApplicationRecord
   belongs_to :area
   belongs_to :part
   belongs_to :genre
+  has_one_attached :image
 
   # PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze # 半角英数混合1字以上
   # validates_format_of :password, with: PASSWORD_REGEX, message: 'is invalid. Include both letters and numbers'
