@@ -83,7 +83,11 @@
 
     <div class="booking-show-middle">
       <div>
-        <%= @booking.date_start %>〜<%= @booking.date_end %>
+        <% if @booking.date_start == @booking.date_end %>
+          <%= @booking.date_start %>
+        <% else %>
+          <%= @booking.date_start %>〜<%= @booking.date_end %>
+        <% end%>
       </div>
       <div data-bs-toggle="modal" data-bs-target="#bookingProfileModal">
         <%= link_to @booking.user.nickname, '#' %>
