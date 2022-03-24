@@ -7,9 +7,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="profile-image-box">
-          <%= image_tag 'profile_image.jpg', class: "profile-image"%>
-        </div>
+          <div class="profile-image-box">
+            <% if @booking.user.image.attached? %>
+              <%= image_tag @booking.user.image, class: "profile-image" %>
+            <% else %>
+              <%= image_tag 'profile_image.jpg', class: "profile-image" %>
+            <% end %>
+          </div>
         <div class="profile-detail">
           <p>登録日： <%= @booking.user.created_at.strftime('%Y/%m/%d') %></p>
           <p>年齢： <%= (Date.today.strftime('%Y%m%d').to_i - @booking.user.birthday.strftime('%Y%m%d').to_i) / 10000 if @booking.user.birthday.present? %></p>
