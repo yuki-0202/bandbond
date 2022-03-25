@@ -39,8 +39,14 @@
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
               </div>
               <div class="my-2 mx-md-5 col-5">
-                <label class="info-text mb-2 ">画像</label>
-                  <%= f.file_field :image, class: "form-control" %>
+                <div>
+                  <label class="info-text mb-2 ">画像</label>
+                </div>
+                <label>
+                  <span type="button" class="btn btn-light">ファイルを選択</span>
+                  <%= f.file_field :image, class: "hidden" %>
+                </label>
+                <button type="button" class="btn btn-danger mx-3" data-bs-toggle="modal" data-bs-target="#fileDeleteModal">削除</button>
               </div>
             </div>
 
@@ -107,3 +113,23 @@
 </div>
 
 <%= render "shared/footer" %>
+
+<!-- Modal（画像削除確認） -->
+<div class="modal fade" id="fileDeleteModal" tabindex="-1" aria-labelledby="fileDeleteModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModafileDeleteModallLabel">Caution</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>画像の削除を実行すると、編集中のデータはリセットされます。</p>
+        <p>削除してもよろしいですか？</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">もどる</button>
+        <%= link_to '削除する', purge_users_path, class: "btn btn-danger"%>
+      </div>
+    </div>
+  </div>
+</div>

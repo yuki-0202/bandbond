@@ -52,7 +52,7 @@
                 </div>
                 <div>
                   <%= link_to '編集', edit_booking_path(@booking.id), class: "btn btn-secondary"%>
-                  <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#deleteModal">削除</button>
+                  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">削除</button>
                 </div>
 
               <% elsif user_signed_in?  && current_user.id != @booking.user_id %>
@@ -96,7 +96,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">もどる</button>
-        <%= link_to '削除する', booking_path(@booking.id), method: :delete, class: "btn btn-primary"%>
+        <%= link_to '削除する', booking_path(@booking.id), method: :delete, class: "btn btn-danger"%>
       </div>
     </div>
   </div>
