@@ -1,12 +1,19 @@
 # -------------------- users --------------------
 nobunaga = User.create( email: 'aaa@aaa', nickname: '織田信長', password: '111aaa' )
+nobunaga.image.attach(io: File.open(Rails.root.join('app/assets/images/p_oda_nobunaga.png')), filename: 'p_oda_nobunaga.png')
 hideyosi = User.create( email: 'bbb@bbb', nickname: '豊臣秀吉', password: '111bbb' )
+hideyosi.image.attach(io: File.open(Rails.root.join('app/assets/images/p_toyotomi_hideyoshi.png')), filename: 'p_toyotomi_hideyoshi.png')
 ieyasu = User.create( email: 'ccc@ccc', nickname: '徳川家康', password: '111ccc' )
+ieyasu.image.attach(io: File.open(Rails.root.join('app/assets/images/p_tokugawa_ieyasu.png')), filename: 'p_tokugawa_ieyasu.png')
 singen = User.create( email: 'ddd@ddd', nickname: '武田信玄', password: '111ddd' )
+singen.image.attach(io: File.open(Rails.root.join('app/assets/images/p_takeda_shingen.png')), filename: 'p_takeda_shingen.png')
 kensin = User.create( email: 'eee@eee', nickname: '上杉謙信', password: '111eee' )
+kensin.image.attach(io: File.open(Rails.root.join('app/assets/images/p_uesugi_kenshin.png')), filename: 'p_uesugi_kenshin.png')
 masamune = User.create( email: 'fff@fff', nickname: '伊達政宗', password: '111fff' )
+masamune.image.attach(io: File.open(Rails.root.join('app/assets/images/p_date_masamune.png')), filename: 'p_date_masamune.png')
 toshiie = User.create( email: 'ggg@ggg', nickname: '前田利家', password: '111ggg' )
 motonari = User.create( email: 'hhh@hhh', nickname: '毛利元就', password: '111hhh' )
+motonari.image.attach(io: File.open(Rails.root.join('app/assets/images/p_mouri_motonari_oreru.png')), filename: 'p_mouri_motonari_oreru.png')
 mototika = User.create( email: 'iii@iii', nickname: '長宗我部元親', password: '111iii' )
 kiyomasa = User.create( email: 'jjj@jjj', nickname: '加藤清正', password: '111jjj' )
 koumei = User.create(
@@ -20,6 +27,7 @@ koumei = User.create(
   part_id: 5,
   introduction: "天下三分の計"
 )
+koumei.image.attach(io: File.open(Rails.root.join('app/assets/images/p_syokatsu_koumei.png')), filename: 'p_syokatsu_koumei.png')
 chutatsu = User.create(
   email: 'mmm@mmm',
   nickname: '司馬仲達',
@@ -241,7 +249,7 @@ yamanashi = Booking.create(
   date_end: Date.tomorrow,
   venue: 'Nao Studio KAZOO HALL',
   detail: '未定',
-  user_id: kensin.id
+  user_id: singen.id
 )
 
 nagano = Booking.create(
@@ -581,3 +589,9 @@ Message.create( content: 'ぼちぼちです', room_id: room.id, user_id: chutat
 Message.create( content: 'ライブを企画しようと思うのですが', room_id: room.id, user_id: chutatsu.id )
 Message.create( content: '出演バンドを集める良い方法を知りませんか？', room_id: room.id, user_id: chutatsu.id )
 Message.create( content: '天下三分の計', room_id: room.id, user_id: koumei.id )
+
+room = Room.create( booking_id: yamanashi.id, user_id: koumei.id )
+RoomUser.create( room_id: room.id, user_id: koumei.id )
+RoomUser.create( room_id: room.id, user_id: singen.id )
+Message.create( content: 'はじめまして', room_id: room.id, user_id: koumei.id )
+Message.create( content: '風林火山！', room_id: room.id, user_id: singen.id )
