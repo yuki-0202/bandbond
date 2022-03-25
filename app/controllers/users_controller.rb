@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def purge
+    current_user.image.purge if current_user.image.present?
+    render :edit
+  end
+
   private
 
   def user_params
