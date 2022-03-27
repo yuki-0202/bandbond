@@ -62,4 +62,19 @@ RSpec.describe 'ユーザー管理機能', type: :system do
       expect(current_path).to eq(user_registration_path)
     end
   end
+
+  context 'ユーザー編集機能' do
+    it 'ユーザー編集に成功し、トップページへ遷移する' do
+    end
+    it 'ユーザー編集に失敗し、再び編集ページへ戻ってくる' do
+    end
+    it '画像投稿に成功し、トップページへ遷移する' do
+    end
+    it '画像削除に成功し、編集ページへ戻ってくる' do
+    end
+    it '自身の投稿したブッキング詳細の投稿者名から、ユーザー編集ページへ遷移できる' do
+    end
+    it '自身の投稿したブッキングのチャットルームのオフキャンバスから、ユーザー編集ページへ遷移できる' do
+    end
+  end
 end
