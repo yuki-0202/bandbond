@@ -65,13 +65,61 @@ RSpec.describe 'ユーザー管理機能', type: :system do
 
   context 'ユーザー編集機能' do
     it 'ユーザー編集に成功し、トップページへ遷移する' do
+      @user.save
+      sign_in(@user)
+      visit root_path
+      find('.user-nickname').click
+      click_on('編集する')
+      expect(current_path).to eq(edit_user_path(@user.id))
+      fill_in 'user[nickname]', with: 'テスト'
+      expect { click_on('更新する') }.to change { User.count }.by(0)
+      expect(current_path).to eq(root_path)
+      expect(find('.user-nickname')).to have_content('テスト')
     end
+
     it 'ユーザー編集に失敗し、再び編集ページへ戻ってくる' do
+      @user.save
+      sign_in(@user)
+      visit root_path
+      find('.user-nickname').click
+      click_on('編集する')
+      expect(current_path).to eq(edit_user_path(@user.id))
+      fill_in 'user[nickname]', with: ''
+      expect { click_on('更新する') }.to change { User.count }.by(0)
+      expect(current_path).to eq(user_path(@user.id))
+      expect(page).to have_content('ニックネームを入力してください')
     end
+
     it '画像投稿に成功し、トップページへ遷移する' do
+      @user.image = nil
+      @user.save
+      sign_in(@user)
+      visit root_path
+      find('.user-nickname').click
+      click_on('編集する')
+      expect(current_path).to eq(edit_user_path(@user.id))
+      image_path = Rails.root.join('public/images/test_neko.webp')
+      attach_file('user[image]', image_path, make_visible: true)
+      expect { click_on('更新する') }.to change { User.count }.by(0)
+      expect(current_path).to eq(root_path)
+      find('.user-nickname').click
+      expect(page).to have_selector("img[src$='test_neko.webp']")
     end
+
     it '画像削除に成功し、編集ページへ戻ってくる' do
+      @user.save
+      sign_in(@user)
+      visit root_path
+      find('.user-nickname').click
+      click_on('編集する')
+      expect(current_path).to eq(edit_user_path(@user.id))
+      expect(page).to have_selector("img[src$='test_neko.webp']")
+      click_on('削除')
+      click_on('削除する')
+      expect(current_path).to eq(purge_users_path)
+      expect(page).to have_no_selector("img[src$='test_neko.webp']")
     end
+
     it '自身の投稿したブッキング詳細の投稿者名から、ユーザー編集ページへ遷移できる' do
     end
     it '自身の投稿したブッキングのチャットルームのオフキャンバスから、ユーザー編集ページへ遷移できる' do
