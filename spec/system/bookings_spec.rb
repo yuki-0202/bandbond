@@ -71,6 +71,13 @@ RSpec.describe 'ブッキング管理機能', type: :system do
 
   context 'ブッキング削除テスト' do
     it 'ブッキングの削除に成功し、トップページへ遷移する' do
+      @booking.save
+      sign_in(@user)
+      visit booking_path(@booking.id)
+      click_on('削除')
+      expect { click_on('削除する') }.to change { Booking.count }.by(-1)
+      expect(current_path).to eq(root_path)
+      expect(page).to have_no_content(@booking.venue)
     end
   end
 end
