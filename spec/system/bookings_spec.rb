@@ -3,28 +3,55 @@ require 'rails_helper'
 RSpec.describe 'ブッキング管理機能', type: :system do
   before do
     @user = FactoryBot.create(:user)
+    @booking = FactoryBot.build(:booking)
+    @booking.user_id = @user.id
   end
 
   context 'ブッキング投稿テスト' do
     it 'ブッキング投稿に成功し、トップページへ遷移する' do
-
+      sign_in(@user)
+      find('#navbar_booking').click
+      expect(page).to have_content('新規投稿')
+      click_on('新規投稿')
+      expect(current_path).to eq(new_booking_path)
+      select @booking.area.name, from: 'booking[area_id]'
+      select @booking.genre.name, from: 'booking[genre_id]'
+      fill_in 'booking[date_start]', with: @booking.date_start
+      fill_in 'booking[date_end]', with: @booking.date_end
+      fill_in 'booking[venue]', with: @booking.venue
+      fill_in 'booking[detail]', with: @booking.detail
+      expect { click_on('投稿する') }.to change { Booking.count }.by(1)
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content(@booking.area.name && @booking.venue && @booking.date_start)
     end
-    it 'ブッキング投稿に失敗し、再びブッキング投稿ページへ戻ってくる' do
 
+    it 'ブッキング投稿に失敗し、再びブッキング投稿ページへ戻ってくる' do
+      sign_in(@user)
+      find('#navbar_booking').click
+      expect(page).to have_content('新規投稿')
+      click_on('新規投稿')
+      expect(current_path).to eq(new_booking_path)
+      select '---', from: 'booking[area_id]'
+      select '---', from: 'booking[genre_id]'
+      fill_in 'booking[date_start]', with: ''
+      fill_in 'booking[date_end]', with: ''
+      fill_in 'booking[venue]', with: ''
+      fill_in 'booking[detail]', with: ''
+      expect { click_on('投稿する') }.to change { Booking.count }.by(0)
+      expect(current_path).to eq(bookings_path)
+      expect(page).to have_content('地域を入力してください')
     end
   end
 
   context 'ブッキング編集テスト' do
     it 'ブッキング編集に成功し、ブッキング詳細ページへ遷移する' do
-
     end
-    it 'ブッキング編集に失敗し、再びブッキング編集ページへ戻ってくる'
-
+    it 'ブッキング編集に失敗し、再びブッキング編集ページへ戻ってくる' do
+    end
   end
 
   context 'ブッキング削除テスト' do
     it 'ブッキングの削除に成功し、トップページへ遷移する' do
-
     end
   end
 end
