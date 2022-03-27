@@ -45,8 +45,27 @@ RSpec.describe 'ブッキング管理機能', type: :system do
 
   context 'ブッキング編集テスト' do
     it 'ブッキング編集に成功し、ブッキング詳細ページへ遷移する' do
+      @booking.save
+      sign_in(@user)
+      visit booking_path(@booking.id)
+      click_on('編集')
+      expect(current_path).to eq(edit_booking_path(@booking.id))
+      fill_in 'booking[venue]', with: '日本武道館'
+      expect { click_on('変更する') }.to change { Booking.count }.by(0)
+      expect(current_path).to eq(booking_path(@booking.id))
+      expect(page).to have_content('日本武道館')
     end
+
     it 'ブッキング編集に失敗し、再びブッキング編集ページへ戻ってくる' do
+      @booking.save
+      sign_in(@user)
+      visit booking_path(@booking.id)
+      click_on('編集')
+      expect(current_path).to eq(edit_booking_path(@booking.id))
+      fill_in 'booking[venue]', with: ''
+      expect { click_on('変更する') }.to change { Booking.count }.by(0)
+      expect(current_path).to eq(booking_path(@booking.id))
+      expect(page).to have_content('会場を入力してください')
     end
   end
 
