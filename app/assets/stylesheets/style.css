@@ -367,7 +367,7 @@ body {
   color: white;
 }
 
-/*以下、②左側のコメント*/
+/*以下、左側のコメント*/
 .balloon6 {
   width: 100%;
   margin: 10px 0;
@@ -415,7 +415,7 @@ body {
   padding: 0;
 }
 
-/*以下、③右側の緑コメント*/
+/*以下、右側の緑コメント*/
 .mycomment {
   margin: 10px 0;
 }
@@ -442,7 +442,7 @@ body {
   transform: rotate(-35deg);
 }
 
-/*------------------ ここまで ------------------*/
+/*------------------ ユーザー ------------------*/
 
 .profile-image-box {
   display: flex;
