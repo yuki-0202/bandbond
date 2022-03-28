@@ -161,7 +161,7 @@ HTML / CSS / JavaScript
 - バックエンド  
 Ruby / Ruby on Rails
 - インフラ  
-Heroku / MySQL
+Heroku / MySQL / AWS S3
 - テスト  
 RSpec
 - テキストエディタ  
