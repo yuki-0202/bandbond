@@ -121,8 +121,29 @@ RSpec.describe 'ユーザー管理機能', type: :system do
     end
 
     it '自身の投稿したブッキング詳細の投稿者名から、ユーザー編集ページへ遷移できる' do
+      @booking = FactoryBot.create(:booking)
+      sign_in(@booking.user)
+      visit root_path
+      visit booking_path(@booking.id)
+      find('#booking_user_nickname').click
+      click_on('編集する')
+      expect(current_path).to eq(edit_user_path(@booking.user.id))
     end
+
     it '自身の投稿したブッキングのチャットルームのオフキャンバスから、ユーザー編集ページへ遷移できる' do
+      @room_user = FactoryBot.create(:room_user)
+      @message = FactoryBot.build(:message)
+      @message.room_id = @room_user.room_id
+      @message.save
+      sign_in(@room_user.room.booking.user)
+      visit root_path
+      visit booking_path(@room_user.room.booking.id)
+      click_on('チャットルーム一覧')
+      find('#room_list').click
+      click_on('ブッキング詳細を表示')
+      find('#booking_user_nickname').click
+      click_on('編集する')
+      expect(current_path).to eq(edit_user_path(@room_user.room.booking.user.id))
     end
   end
 end

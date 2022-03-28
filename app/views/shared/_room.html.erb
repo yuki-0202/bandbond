@@ -5,7 +5,7 @@
     <% user = room.users[0] %>
   <% end %>
 
-  <%= link_to room_path(room[:id]), class: 'list-group-item list-group-item-action' do %>
+  <%= link_to room_path(room[:id]), class: 'list-group-item list-group-item-action', id:"room_list" do %>
     <div class="booking-list-top">
       <%= user.nickname %>さん
       <div>
