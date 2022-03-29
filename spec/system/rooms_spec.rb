@@ -1,10 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe 'ルーム管理機能', type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+    @booking = FactoryBot.create(:booking)
+    @room = FactoryBot.build(:room, booking_id: @booking.id, user_id: @user.id)
+  end
+
   context 'ルーム自動作成テスト' do
     it 'ルーム自動作成に成功し、ルーム詳細ページへ遷移する' do
+      sign_in(@user)
+      visit booking_path(@booking.id)
+      expect { click_on('チャットルーム') }.to change { Room.count }.by(1)
+      expect(current_path).to eq(room_path(Room.last.id))
     end
     it 'すでにルームが存在する場合、ルーム自動作成は実行されず、該当のルーム詳細ページへ遷移する' do
+      @room.save
+      sign_in(@user)
+      visit booking_path(@booking.id)
+      expect { click_on('チャットルーム') }.to change { Room.count }.by(0)
+      expect(current_path).to eq(room_path(@room.id))
     end
   end
 
