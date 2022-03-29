@@ -132,9 +132,7 @@ RSpec.describe 'ユーザー管理機能', type: :system do
 
     it '自身の投稿したブッキングのチャットルームのオフキャンバスから、ユーザー編集ページへ遷移できる' do
       @room_user = FactoryBot.create(:room_user)
-      @message = FactoryBot.build(:message)
-      @message.room_id = @room_user.room_id
-      @message.save
+      @message = FactoryBot.create(:message, room_id: @room_user.room_id)
       sign_in(@room_user.room.booking.user)
       visit root_path
       visit booking_path(@room_user.room.booking.id)
