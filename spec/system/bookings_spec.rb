@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe 'ブッキング管理機能', type: :system do
   before do
     @user = FactoryBot.create(:user)
-    @booking = FactoryBot.build(:booking)
-    @booking.user_id = @user.id
+    @booking = FactoryBot.build(:booking, user_id: @user.id)
   end
 
   context 'ブッキング投稿テスト' do
