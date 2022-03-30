@@ -10,6 +10,7 @@ require("channels")
 require('jquery')
 require("../map")
 require("../preview")
+require("../message")
 import "bootstrap"
 import "../stylesheets/application"
 
