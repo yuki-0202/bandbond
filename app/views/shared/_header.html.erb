@@ -26,17 +26,7 @@
               <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#myRoomModal">チャット履歴</a></li>
             </ul>
           </li>
-          <%= search_form_for @q, url: search_bookings_path, html: {id: "detailed-search-form"} do |f| %>
-            <div class="form-row d-md-flex search-form">
-              <%= f.collection_select(:area_id_eq, Area.all, :id, :name, {include_blank: "地域"}, {class: "form-select mx-1 bg-dark text-secondary border-success rounded-pill", id:"search-area-select"}) %>
-              <%= f.collection_select(:genre_id_eq, Genre.all, :id, :name, {include_blank: "ジャンル"}, {class: "form-select mx-1 bg-dark text-secondary border-success rounded-pill"}) %>
-              <%= f.date_field :date_end_gteq, class: "form-control mx-2 bg-dark text-secondary border-success rounded-pill" %>
-              <p>〜</p>
-              <%= f.date_field :date_start_lteq, class: "form-control mx-2 bg-dark text-secondary border-success rounded-pill" %>
-              <%= f.submit 'Search', class: "btn btn-outline-success rounded-pill mx-1", id: "search-submit" %>
-              <i class="bi bi-search"></i>
-            </div>
-          <% end %>
+          <%= render "shared/header_search" %>
         </ul>
       </div>
       <ul class="navbar-nav mb-2 mb-lg-0">
@@ -58,17 +48,7 @@
           <a type="button" class="nav-link dropdown-toggle" data-bs-toggle="modal" data-bs-target="#loginModal">
             チャット
           </a>
-          <%= search_form_for @q, url: search_bookings_path, html: {id: "detailed-search-form"} do |f| %>
-            <div class="form-row d-md-flex search-form">
-              <%= f.collection_select(:area_id_eq, Area.all, :id, :name, {include_blank: "地域"}, {class: "form-select mx-1 bg-dark text-secondary border-success rounded-pill", id:"search-area-select"}) %>
-              <%= f.collection_select(:genre_id_eq, Genre.all, :id, :name, {include_blank: "ジャンル"}, {class: "form-select mx-1 bg-dark text-secondary border-success rounded-pill"}) %>
-              <%= f.date_field :date_end_gteq, class: "form-control mx-2 bg-dark text-secondary border-success rounded-pill" %>
-              <p>〜</p>
-              <%= f.date_field :date_start_lteq, class: "form-control mx-2 bg-dark text-secondary border-success rounded-pill" %>
-              <%= f.submit 'Search', class: "btn btn-outline-success rounded-pill mx-1", id: "search-submit" %>
-              <i class="bi bi-search"></i>
-            </div>
-          <% end %>
+          <%= render "shared/header_search" %>
         </ul>
       </div>
       <ul class="navbar-nav mb-2 mb-lg-0">
@@ -83,13 +63,13 @@
     <!-------------------ここまで------------------->
 
     <!-- Modal（プロフィール詳細） -->
-    <%= render "shared/m_profile"%>
+    <%= render "shared/m_profile" %>
 
     <!-- Modal（投稿履歴） -->
-    <%= render "shared/m_my_booking"%>
+    <%= render "shared/m_my_booking" %>
 
     <!-- Modal（チャット履歴） -->
-    <%= render "shared/m_my_room"%>
+    <%= render "shared/m_my_room" %>
 
     <!-- Modal（ログイン案内） -->
     <%= render "shared/m_login" %>
