@@ -1,0 +1,11 @@
+<%= search_form_for @q, url: search_bookings_path, html: {id: "detailed-search-form"} do |f| %>
+  <div class="form-row d-md-flex search-form">
+    <%= f.collection_select(:area_id_eq, Area.all, :id, :name, {include_blank: "地域"}, {class: "form-control mx-1 bg-dark text-white border-success rounded-pill", id:"search-area-select"}) %>
+    <%= f.collection_select(:genre_id_eq, Genre.all, :id, :name, {include_blank: "ジャンル"}, {class: "form-control mx-1 bg-dark text-white border-success rounded-pill"}) %>
+    <%= f.date_field :date_end_gteq, class: "form-control mx-2 bg-dark text-white border-success rounded-pill" %>
+    <p>〜</p>
+    <%= f.date_field :date_start_lteq, class: "form-control mx-2 bg-dark text-white border-success rounded-pill" %>
+    <%= f.submit 'Search', class: "btn btn-outline-success rounded-pill mx-1", id: "search-submit" %>
+    <i class="bi bi-search"></i>
+  </div>
+<% end %>

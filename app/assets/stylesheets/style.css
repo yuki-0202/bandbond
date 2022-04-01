@@ -481,3 +481,7 @@ body {
   width: 100%;
 } 
 
+.search-form p {
+  color: white;
+  margin: auto;
+}

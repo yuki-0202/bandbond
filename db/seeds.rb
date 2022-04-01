@@ -75,8 +75,8 @@ iwate = Booking.create(
 miyagi = Booking.create(
   area_id: '5',
   genre_id: '6',
-  date_start: Date.today,
-  date_end: Date.tomorrow,
+  date_start: Date.today.next_month,
+  date_end: Date.tomorrow.next_month,
   venue: 'ライヴホールdarwin',
   detail: '未定',
   user_id: masamune.id
@@ -125,8 +125,8 @@ ibaraki = Booking.create(
 tochigi = Booking.create(
   area_id: '10',
   genre_id: '4',
-  date_start: Date.today,
-  date_end: Date.tomorrow,
+  date_start: Date.today.next_month,
+  date_end: Date.tomorrow.next_month,
   venue: "HEAVEN'S ROCK 宇都宮VJ-2",
   detail: '未定',
   user_id: ieyasu.id
@@ -225,8 +225,8 @@ toyama = Booking.create(
 ishikawa = Booking.create(
   area_id: '18',
   genre_id: '10',
-  date_start: Date.today,
-  date_end: Date.tomorrow,
+  date_start: Date.today.next_month,
+  date_end: Date.tomorrow.next_month,
   venue: '金沢AZホール',
   detail: '未定',
   user_id: toshiie.id
@@ -305,8 +305,8 @@ aichi_2 = Booking.create(
 mie = Booking.create(
   area_id: '25',
   genre_id: '8',
-  date_start: Date.today,
-  date_end: Date.tomorrow,
+  date_start: Date.today.next_month,
+  date_end: Date.tomorrow.next_month,
   venue: 'クラブケイオス',
   detail: '未定',
   user_id: hideyosi.id
@@ -315,8 +315,8 @@ mie = Booking.create(
 shiga = Booking.create(
   area_id: '26',
   genre_id: '8',
-  date_start: Date.today,
-  date_end: Date.today,
+  date_start: Date.today.next_month,
+  date_end: Date.today.next_month,
   venue: 'LIVEHOUSE CLUB B-FLAT',
   detail: '未定',
   user_id: hideyosi.id
@@ -435,8 +435,8 @@ hiroshima = Booking.create(
 yamaguchi = Booking.create(
   area_id: '36',
   genre_id: '2',
-  date_start: Date.tomorrow,
-  date_end: Date.tomorrow,
+  date_start: Date.tomorrow.next_month,
+  date_end: Date.tomorrow.next_month,
   venue: 'ライブハウス Gumbo',
   detail: '未定',
   user_id: motonari.id
@@ -545,8 +545,8 @@ miyazaki = Booking.create(
 kagoshima = Booking.create(
   area_id: '47',
   genre_id: '4',
-  date_start: Date.today,
-  date_end: Date.tomorrow,
+  date_start: Date.today.next_month,
+  date_end: Date.tomorrow.next_month,
   venue: 'Speed King -STUDIO-',
   detail: '未定',
   user_id: kiyomasa.id
