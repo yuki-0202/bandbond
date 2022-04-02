@@ -40,6 +40,6 @@ class ApplicationController < ActionController::Base
         my_message_rooms << room if room.messages.present?
       end
     end
-    @my_rooms = my_message_rooms.sort_by { |x| x.messages.last.created_at }.reverse
+    @my_rooms = my_message_rooms.sort_by { |room| room.messages.last.created_at }.reverse
   end
 end
