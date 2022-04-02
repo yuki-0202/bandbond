@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   def set_header_search
     @q = Booking.ransack(params[:q])
     @search_bookings = @q.result.order('updated_at DESC')
+    @search_count = @search_bookings.count
   end
 
   def set_header_booking
