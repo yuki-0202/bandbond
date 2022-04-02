@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all.order('updated_at DESC').includes(:user)
+    @bookings_count = @bookings.count
   end
 
   def new
