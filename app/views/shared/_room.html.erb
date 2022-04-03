@@ -1,5 +1,5 @@
 <% if room.messages.present? && user_signed_in? %>
-  <% if room.users[0].id == @booking.user.id %>
+  <% if room.users[0].id.equal?(current_user.id) %>
     <% user = room.users[1] %>
   <% else %>
     <% user = room.users[0] %>

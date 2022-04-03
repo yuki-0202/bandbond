@@ -10,7 +10,7 @@
       <div class="modal-body history-list">
         <% if @my_rooms.present? %>
           <% @my_rooms.each do |room| %>
-            <%= render partial: 'shared/m_my_message', locals: { room: room } %>
+            <%= render partial: 'shared/room', locals: { room: room } %>
           <% end %>
         <% else %>
           チャット履歴はありません
