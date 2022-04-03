@@ -31,7 +31,11 @@
             </div>
             <div class="booking-show-middle">
               <div>
-                開催期間：<%= @booking.date_start %>〜<%= @booking.date_end %>
+                <% if @booking.date_start == @booking.date_end %>
+                  開催予定日：<%= @booking.date_start %>
+                <% else %>
+                  開催予定期間：<%= @booking.date_start %>〜<%= @booking.date_end %>
+                <% end%>
               </div>
               <div data-bs-toggle="modal" data-bs-target="#bookingProfileModal">
                 <%= link_to @booking.user.nickname, '#', id: "booking_user_nickname" %>
