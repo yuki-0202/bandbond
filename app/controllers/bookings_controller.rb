@@ -22,7 +22,12 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @rooms = Room.where(booking_id: params[:id]).includes(:users, :messages).sort_by { |room| room.messages.last.created_at }.reverse
+    @rooms = []
+    rooms = Room.where(booking_id: params[:id]).includes(:users, :messages)
+    rooms.each do |room|
+      @rooms << room if room.messages.present?
+    end
+    @rooms = @rooms.sort_by { |room| room.messages.last.created_at }.reverse
   end
 
   def edit
