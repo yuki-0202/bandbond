@@ -31,11 +31,11 @@
             <div class="form-row d-md-flex">
               <div class="my-2 col-5">
                 <label class="info-text mb-2">開催期間（開始）</label>
-                <%= f.date_field :date_start, class: 'form-control',value: (Time.now.strftime("%Y-%m-%d")) %>
+                <%= f.date_field :date_start, class: 'form-control',value: (Time.now.strftime("%Y-%m-%d")), min: Date.current %>
               </div>
               <div class="my-2 mx-md-5 col-5">
                 <label class="info-text mb-2">開催期間（終了）</label>
-                <%= f.date_field :date_end, class: 'form-control',value: (Time.now.strftime("%Y-%m-%d")) %>
+                <%= f.date_field :date_end, class: 'form-control',value: (Time.now.strftime("%Y-%m-%d")), min: Date.current %>
               </div>
             </div>
 
