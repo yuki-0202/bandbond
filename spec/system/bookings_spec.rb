@@ -79,4 +79,36 @@ RSpec.describe 'ブッキング管理機能', type: :system do
       expect(page).to have_no_content(@booking.venue)
     end
   end
+
+  context '投稿履歴テスト' do
+    it '投稿したブッキングが投稿履歴に表示される' do
+      # ブッキング投稿
+      sign_in(@user)
+      find('#navbar_booking').click
+      expect(page).to have_content('新規投稿')
+      click_on('新規投稿')
+      expect(current_path).to eq(new_booking_path)
+      select @booking.area.name, from: 'booking[area_id]'
+      select @booking.genre.name, from: 'booking[genre_id]'
+      fill_in 'booking[date_start]', with: @booking.date_start
+      fill_in 'booking[date_end]', with: @booking.date_end
+      fill_in 'booking[venue]', with: @booking.venue
+      fill_in 'booking[detail]', with: @booking.detail
+      expect { click_on('投稿する') }.to change { Booking.count }.by(1)
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content(@booking.area.name && @booking.venue && @booking.date_start)
+
+      # 投稿一覧の表示されていないページへ遷移
+      find('#navbar_booking').click
+      expect(page).to have_content('投稿履歴')
+      click_on('新規投稿')
+      expect(current_path).to eq(new_booking_path)
+
+      # ヘッダーから投稿履歴に表示されているかを確認
+      find('#navbar_booking').click
+      expect(page).to have_content('投稿履歴')
+      find('#booking-history').click
+      expect(page).to have_content(@booking.area.name && @booking.venue && @booking.date_start)
+    end
+  end
 end
