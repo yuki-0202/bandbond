@@ -28,7 +28,9 @@ RSpec.describe 'チャット管理機能', type: :system do
       expect(current_path).to eq(room_messages_path(@booking.rooms.ids))
       expect(page).to have_content('チャット履歴はありません')
     end
+  end
 
+  context 'チャット削除テスト' do
     it 'ブッキング投稿が削除されると、関連するルームとチャットが全て削除される' do
       @room_user = FactoryBot.create(:room_user)
       FactoryBot.create_list(:message, 5, room_id: @room_user.room.id, user_id: @room_user.user.id)
@@ -37,6 +39,27 @@ RSpec.describe 'チャット管理機能', type: :system do
       click_on('削除')
       expect { click_on('削除する') }.to change { @room_user.room.messages.count }.by(-5)
       expect(current_path).to eq(root_path)
+    end
+  end
+
+  context 'チャット履歴テスト' do
+    it '送信したチャットが、チャット履歴に表示される' do
+      # チャットを送信
+      sign_in(@user)
+      visit booking_path(@booking.id)
+      click_on('チャットルーム')
+      expect(current_path).to eq(room_path(@booking.rooms.ids))
+      fill_in 'message[content]', with: 'テスト'
+      expect { click_on('送信') }.to change { Message.count }.by(1)
+      expect(current_path).to eq(room_path(@booking.rooms.ids))
+      expect(page).to have_content('テスト')
+
+      # チャット履歴を確認
+      visit root_path
+      find('#navbar_chat').click
+      expect(page).to have_content('チャット履歴')
+      find('#chat_history').click
+      expect(page).to have_content('テスト')
     end
   end
 end

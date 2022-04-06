@@ -107,7 +107,7 @@ RSpec.describe 'ブッキング管理機能', type: :system do
       # ヘッダーから投稿履歴に表示されているかを確認
       find('#navbar_booking').click
       expect(page).to have_content('投稿履歴')
-      find('#booking-history').click
+      find('#booking_history').click
       expect(page).to have_content(@booking.area.name && @booking.venue && @booking.date_start)
     end
   end
