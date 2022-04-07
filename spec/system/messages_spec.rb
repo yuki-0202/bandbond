@@ -43,7 +43,7 @@ RSpec.describe 'チャット管理機能', type: :system do
   end
 
   context 'チャット履歴テスト' do
-    it '送信したチャットが、チャット履歴に表示される' do
+    it '自身で送信したチャットが、自身のチャット履歴に表示される' do
       # チャットを送信
       sign_in(@user)
       visit booking_path(@booking.id)
@@ -56,6 +56,27 @@ RSpec.describe 'チャット管理機能', type: :system do
 
       # チャット履歴を確認
       visit root_path
+      find('#navbar_chat').click
+      expect(page).to have_content('チャット履歴')
+      find('#chat_history').click
+      expect(page).to have_content('テスト')
+    end
+
+    it '相手の送信したチャットが、自身のチャット履歴に表示される' do
+      # チャット送り手がチャットを送信
+      sign_in(@user)
+      visit booking_path(@booking.id)
+      click_on('チャットルーム')
+      expect(current_path).to eq(room_path(@booking.rooms.ids))
+      fill_in 'message[content]', with: 'テスト'
+      expect { click_on('送信') }.to change { Message.count }.by(1)
+      expect(current_path).to eq(room_path(@booking.rooms.ids))
+      expect(page).to have_content('テスト')
+
+      # チャット貰い手のアドレスでログインし、チャット履歴を確認
+      visit root_path
+      find('#navbar_logout').click
+      sign_in(@booking.user)
       find('#navbar_chat').click
       expect(page).to have_content('チャット履歴')
       find('#chat_history').click

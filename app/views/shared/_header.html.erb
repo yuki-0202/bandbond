@@ -31,7 +31,7 @@
       </div>
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout nav-link active" %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout nav-link active", id: "navbar_logout" %>
         </li>
         <li class="nav-item" data-bs-toggle="modal" data-bs-target="#profileModal">
           <%= link_to current_user.nickname, "#", class: "user-nickname nav-link active" %>
