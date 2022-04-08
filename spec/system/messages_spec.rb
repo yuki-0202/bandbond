@@ -27,6 +27,7 @@ RSpec.describe 'チャット管理機能', type: :system do
       expect { click_on('送信') }.to change { Message.count }.by(0)
       expect(current_path).to eq(room_messages_path(@booking.rooms.ids))
       expect(page).to have_content('チャット履歴はありません')
+      expect(page).to have_content('メッセージを入力してください')
     end
   end
 
