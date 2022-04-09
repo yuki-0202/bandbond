@@ -11,7 +11,7 @@
   <div class="balloon6">
 
     <%# アイコン表示 %>
-    <div class="face-icon" data-bs-toggle="modal" data-bs-target="#roomProfileModal">
+    <div class="face-icon" data-bs-toggle="modal" data-bs-target="#roomProfileModal" role="button">
       <% if partner_user.image.present? %>
         <%= image_tag partner_user.image %>
       <% else %>
@@ -37,7 +37,7 @@
 
 <!------------------ 右コメント ------------------>
 <% else %>
-  <div class="mycomment">
+  <div class="my-comment">
     <span class="chat-time"><%= l message.created_at %></span>
     <p><%= message.content %></p>
   </div>

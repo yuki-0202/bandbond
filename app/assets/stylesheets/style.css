@@ -374,7 +374,7 @@ body {
   color: white;
 }
 
-/*以下、左側のコメント*/
+/* 左側のコメント */
 .balloon6 {
   width: 100%;
   margin: 10px 0;
@@ -422,11 +422,16 @@ body {
   padding: 0;
 }
 
-/*以下、右側の緑コメント*/
-.mycomment {
+/* bootstrap、role属性修正 */
+[role="button"] {
+  cursor: pointer;
+}
+
+/* 右側の緑コメント */
+.my-comment {
   margin: 10px 0;
 }
-.mycomment p {
+.my-comment p {
   display: inline-block;
   text-align: left;
   position: relative; 
@@ -438,7 +443,7 @@ body {
   font-size: 20px;
 }
 
-.mycomment p:after {
+.my-comment p:after {
   content: "";
   position: absolute;
   top: 3px; 
@@ -487,6 +492,8 @@ body {
   height: 260px;
   width: 100%;
 } 
+
+/*------------------ 検索 ------------------*/
 
 .search-form p {
   color: white;
