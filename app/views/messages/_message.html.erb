@@ -1,4 +1,11 @@
 <% if message.user_id != current_user.id %>
+  <% if @room.users[0].id.equal?(current_user.id) %>
+    <% my_user = @room.users[0] %>
+    <% partner_user = @room.users[1]%>
+  <% else %>
+    <% my_user = @room.users[1] %>
+    <% partner_user = @room.users[0]%>
+  <% end %>
 
 <!------------------ 左コメント ------------------>
   <div class="balloon6">
@@ -13,11 +20,7 @@
 
     <%# 名前表示 %>
     <div class="chat-name">
-      <% if @room.users[0].id == current_user.id %>
-        <%= @room.users[1].nickname %>
-      <% else %>
-        <%= @room.users[0].nickname %>
-      <% end %>
+      <%= partner_user.nickname %>
     </div>
 
     <div class="chatting">
